@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateNewCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateNewCard.Designer.cs">
+      <DependentUpon>CreateNewCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Card.cs" />
     <Compile Include="Model\Door.cs" />
     <Compile Include="Model\Doors\CurseCard.cs" />
@@ -67,6 +73,9 @@
     <Compile Include="Model\Treasures\OneShotTreasureCard.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CreateNewCard.resx">
+      <DependentUpon>CreateNewCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

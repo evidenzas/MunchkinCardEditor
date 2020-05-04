@@ -204,7 +204,6 @@ namespace task_017_evi
             modifierSignGroupBox.Location = new Point(5, 20);
             modifierSignGroupBox.Size = new Size(50, 40);
 
-
             ComboBox modifierPlusSignComboBox = new ComboBox();
             modifierSignGroupBox.Controls.Add(modifierPlusSignComboBox);
             modifierPlusSignComboBox.Items.Add("+");
@@ -218,8 +217,9 @@ namespace task_017_evi
             modifierGroupBox.Controls.Add(modifierTextBox);
             modifierTextBox.Dock = DockStyle.Fill;
 
-            additionalParamsGroupBox.Show();
+            modifierTextBox.KeyPress += modifierTextBox_KeyPress;
 
+            additionalParamsGroupBox.Show();
         }
         private void monsterCardRadioButton_CheckedChanged(object sender, EventArgs e)
         {
@@ -256,7 +256,6 @@ namespace task_017_evi
             badStuffGroupBox.Location = new Point(5, 180);
             badStuffGroupBox.Size = new Size(150, 150);
 
-
             TextBox monsterLevelTextBox = new TextBox();
             TextBox monsterRaceTextBox = new TextBox();
             TextBox treasureRewardTextBox = new TextBox();
@@ -276,6 +275,10 @@ namespace task_017_evi
             badStuffTextBox.Dock = DockStyle.Fill;
             badStuffTextBox.Multiline = true;
             badStuffTextBox.ScrollBars = ScrollBars.Vertical;
+
+            monsterLevelTextBox.KeyPress += monsterLevelTextBox_KeyPress;
+            treasureRewardTextBox.KeyPress += treasureRewardTextBox_KeyPress;
+            levelRewardTextBox.KeyPress += levelRewardTextBox_KeyPress;
 
             additionalParamsGroupBox.Show();
         }
@@ -322,7 +325,6 @@ namespace task_017_evi
             modifierGroupBox.Controls.Add(modifierTextBox);
             modifierTextBox.Dock = DockStyle.Fill;
 
-            /////////////////////////
             GroupBox raceRestrictionGroupBox = new GroupBox();
             raceRestrictionGroupBox.Text = "Race restriction";
             GroupBox partOfBodyGroupBox = new GroupBox();
@@ -341,7 +343,6 @@ namespace task_017_evi
             costGroupBox.Location = new Point(5, 140);
             costGroupBox.Size = new Size(150, 40);
 
-
             TextBox raceRestrictionTextBox = new TextBox();
             TextBox partOfBodyTextBox = new TextBox();
             TextBox costTextBox = new TextBox();
@@ -358,6 +359,9 @@ namespace task_017_evi
             isBigItemCheckBox.Text = "Big item";
             additionalParamsGroupBox.Controls.Add(isBigItemCheckBox);
             isBigItemCheckBox.Location = new Point(9, 180);
+
+            modifierTextBox.KeyPress += modifierTextBox_KeyPress;
+            costTextBox.KeyPress += costTextBox_KeyPress;
 
             additionalParamsGroupBox.Show();
         }
@@ -382,6 +386,8 @@ namespace task_017_evi
 
             costTextBox.Dock = DockStyle.Fill;
 
+            costTextBox.KeyPress += costTextBox_KeyPress;
+
             additionalParamsGroupBox.Show();
         }
 
@@ -391,5 +397,45 @@ namespace task_017_evi
             additionalParamsGroupBox.Hide();
         }
 
+        //UI validation for only nums input
+        private void modifierTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void costTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void monsterLevelTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void treasureRewardTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void levelRewardTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

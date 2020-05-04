@@ -20,6 +20,7 @@ namespace task_017_evi
             groupBox2.Hide();
             groupBox3.Hide();
             groupBox4.Hide();
+            additionalParamsGroupBox.Hide();
             cardSubTypeGroupBox.Hide();
             choosePictureButton.Hide();
         }
@@ -72,7 +73,7 @@ namespace task_017_evi
         {
             OpenFileDialog openFileDialog = (sender as OpenFileDialog);
             if (Path.GetExtension(openFileDialog.FileName).ToLower() != ".jpg" &&
-                Path.GetExtension(openFileDialog.FileName).ToLower() != ".jpeg" && 
+                Path.GetExtension(openFileDialog.FileName).ToLower() != ".jpeg" &&
                 Path.GetExtension(openFileDialog.FileName).ToLower() != ".png")
             {
                 e.Cancel = true;
@@ -80,10 +81,12 @@ namespace task_017_evi
                 return;
             }
         }
-
+        //Type params
         private void doorTypeRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             cardSubTypeGroupBox.Controls.Clear();
+            additionalParamsGroupBox.Controls.Clear();
+            additionalParamsGroupBox.Hide();
 
             RadioButton classCardRadioButton = new RadioButton();
             RadioButton curseCardRadioButton = new RadioButton();
@@ -110,12 +113,20 @@ namespace task_017_evi
             monsterCardRadioButton.Location = new Point(6, 75);
             raceCardRadioButton.Location = new Point(6, 95);
 
+            classCardRadioButton.CheckedChanged += classCardRadioButton_CheckedChanged;
+            curseCardRadioButton.CheckedChanged += curseCardRadioButton_CheckedChanged;
+            modifierCardRadioButton.CheckedChanged += modifierCardRadioButton_CheckedChanged;
+            monsterCardRadioButton.CheckedChanged += monsterCardRadioButton_CheckedChanged;
+            raceCardRadioButton.CheckedChanged += raceCardRadioButton_CheckedChanged;
+
             cardSubTypeGroupBox.Show();
         }
 
-        private void TreasureTypeRadioButton_CheckedChanged(object sender, EventArgs e)
+        private void treasureTypeRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             cardSubTypeGroupBox.Controls.Clear();
+            additionalParamsGroupBox.Controls.Clear();
+            additionalParamsGroupBox.Hide();
 
             RadioButton goUpALevelCardRadioButton = new RadioButton();
             RadioButton itemCardRadioButton = new RadioButton();
@@ -125,16 +136,19 @@ namespace task_017_evi
             itemCardRadioButton.Text = "Item card";
             oneShotTreasureCardRadioButton.Text = "One shot trasure card";
 
-
             cardSubTypeGroupBox.Controls.Add(goUpALevelCardRadioButton);
             cardSubTypeGroupBox.Controls.Add(itemCardRadioButton);
             cardSubTypeGroupBox.Controls.Add(oneShotTreasureCardRadioButton);
 
 
             cardSubTypeGroupBox.Size = new Size(130, 90);
-            goUpALevelCardRadioButton.Location = new Point(6, 15);
-            itemCardRadioButton.Location = new Point(6, 35);
-            oneShotTreasureCardRadioButton.Location = new Point(6, 55);
+            goUpALevelCardRadioButton.Location = new Point(6, 20);
+            itemCardRadioButton.Location = new Point(6, 40);
+            oneShotTreasureCardRadioButton.Location = new Point(6, 60);
+
+            goUpALevelCardRadioButton.CheckedChanged += goUpALevelCardRadioButton_CheckedChanged;
+            itemCardRadioButton.CheckedChanged += itemCardRadioButton_CheckedChanged;
+            oneShotTreasureCardRadioButton.CheckedChanged += oneShotTreasureCardRadioButton_CheckedChanged;
 
             cardSubTypeGroupBox.Show();
         }
@@ -142,6 +156,8 @@ namespace task_017_evi
         private void otherTypeRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             cardSubTypeGroupBox.Controls.Clear();
+            additionalParamsGroupBox.Controls.Clear();
+            additionalParamsGroupBox.Hide();
 
             RadioButton otherCardRadioButton = new RadioButton();
 
@@ -152,7 +168,228 @@ namespace task_017_evi
             cardSubTypeGroupBox.Size = new Size(130, 45);
             otherCardRadioButton.Location = new Point(6, 15);
 
+            otherCardRadioButton.CheckedChanged += otherCardRadioButton_CheckedChanged;
+
             cardSubTypeGroupBox.Show();
         }
+
+        //Subtype Params
+        private void classCardRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            additionalParamsGroupBox.Controls.Clear();
+            additionalParamsGroupBox.Hide();
+        }
+        private void curseCardRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            additionalParamsGroupBox.Controls.Clear();
+            additionalParamsGroupBox.Hide();
+        }
+        private void modifierCardRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            additionalParamsGroupBox.Controls.Clear();
+            additionalParamsGroupBox.Size = new Size(170, 70);
+            tableLayoutPanel1.SetRowSpan(additionalParamsGroupBox, 2);
+
+            GroupBox modifierGroupBox = new GroupBox();
+            additionalParamsGroupBox.Controls.Add(modifierGroupBox);
+            modifierGroupBox.Text = "Modifier";
+
+            GroupBox modifierSignGroupBox = new GroupBox();
+            additionalParamsGroupBox.Controls.Add(modifierSignGroupBox);
+            modifierSignGroupBox.Text = "Sign";
+
+            modifierGroupBox.Location = new Point(60, 20);
+            modifierGroupBox.Size = new Size(100, 40);
+
+            modifierSignGroupBox.Location = new Point(5, 20);
+            modifierSignGroupBox.Size = new Size(50, 40);
+
+
+            ComboBox modifierPlusSignComboBox = new ComboBox();
+            modifierSignGroupBox.Controls.Add(modifierPlusSignComboBox);
+            modifierPlusSignComboBox.Items.Add("+");
+            modifierPlusSignComboBox.Items.Add("-");
+            modifierPlusSignComboBox.Text = "+";
+            modifierPlusSignComboBox.Dock = DockStyle.Fill;
+            modifierPlusSignComboBox.Size = new Size(30, 30);
+
+
+            TextBox modifierTextBox = new TextBox();
+            modifierGroupBox.Controls.Add(modifierTextBox);
+            modifierTextBox.Dock = DockStyle.Fill;
+
+            additionalParamsGroupBox.Show();
+
+        }
+        private void monsterCardRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            additionalParamsGroupBox.Controls.Clear();
+            additionalParamsGroupBox.Size = new Size(160, 550);
+            tableLayoutPanel1.SetRowSpan(additionalParamsGroupBox, 8);
+
+
+            GroupBox monsterLevelGroupBox = new GroupBox();
+            monsterLevelGroupBox.Text = "Monster level";
+            GroupBox monsterRaceGroupBox = new GroupBox();
+            monsterRaceGroupBox.Text = "Monster race";
+            GroupBox treasureRewardGroupBox = new GroupBox();
+            treasureRewardGroupBox.Text = "Treasure reward";
+            GroupBox levelRewardGroupBox = new GroupBox();
+            levelRewardGroupBox.Text = "Level reward";
+            GroupBox badStuffGroupBox = new GroupBox();
+            badStuffGroupBox.Text = "Bad stuff";
+
+            additionalParamsGroupBox.Controls.Add(monsterLevelGroupBox);
+            additionalParamsGroupBox.Controls.Add(monsterRaceGroupBox);
+            additionalParamsGroupBox.Controls.Add(treasureRewardGroupBox);
+            additionalParamsGroupBox.Controls.Add(levelRewardGroupBox);
+            additionalParamsGroupBox.Controls.Add(badStuffGroupBox);
+
+            monsterLevelGroupBox.Location = new Point(5, 20);
+            monsterLevelGroupBox.Size = new Size(150, 40);
+            monsterRaceGroupBox.Location = new Point(5, 60);
+            monsterRaceGroupBox.Size = new Size(150, 40);
+            treasureRewardGroupBox.Location = new Point(5, 100);
+            treasureRewardGroupBox.Size = new Size(150, 40);
+            levelRewardGroupBox.Location = new Point(5, 140);
+            levelRewardGroupBox.Size = new Size(150, 40);
+            badStuffGroupBox.Location = new Point(5, 180);
+            badStuffGroupBox.Size = new Size(150, 150);
+
+
+            TextBox monsterLevelTextBox = new TextBox();
+            TextBox monsterRaceTextBox = new TextBox();
+            TextBox treasureRewardTextBox = new TextBox();
+            TextBox levelRewardTextBox = new TextBox();
+            TextBox badStuffTextBox = new TextBox();
+
+            monsterLevelGroupBox.Controls.Add(monsterLevelTextBox);
+            monsterRaceGroupBox.Controls.Add(monsterRaceTextBox);
+            treasureRewardGroupBox.Controls.Add(treasureRewardTextBox);
+            levelRewardGroupBox.Controls.Add(levelRewardTextBox);
+            badStuffGroupBox.Controls.Add(badStuffTextBox);
+
+            monsterLevelTextBox.Dock = DockStyle.Fill;
+            monsterRaceTextBox.Dock = DockStyle.Fill;
+            treasureRewardTextBox.Dock = DockStyle.Fill;
+            levelRewardTextBox.Dock = DockStyle.Fill;
+            badStuffTextBox.Dock = DockStyle.Fill;
+            badStuffTextBox.Multiline = true;
+            badStuffTextBox.ScrollBars = ScrollBars.Vertical;
+
+            additionalParamsGroupBox.Show();
+        }
+        private void raceCardRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            additionalParamsGroupBox.Controls.Clear();
+            additionalParamsGroupBox.Hide();
+        }
+
+        private void goUpALevelCardRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            additionalParamsGroupBox.Controls.Clear();
+            additionalParamsGroupBox.Hide();
+        }
+        private void itemCardRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            additionalParamsGroupBox.Controls.Clear();
+            additionalParamsGroupBox.Size = new Size(160, 350);
+            tableLayoutPanel1.SetRowSpan(additionalParamsGroupBox, 5);
+
+            GroupBox modifierGroupBox = new GroupBox();
+            additionalParamsGroupBox.Controls.Add(modifierGroupBox);
+            modifierGroupBox.Text = "Modifier";
+
+            GroupBox modifierSignGroupBox = new GroupBox();
+            additionalParamsGroupBox.Controls.Add(modifierSignGroupBox);
+            modifierSignGroupBox.Text = "Sign";
+
+            modifierGroupBox.Location = new Point(60, 20);
+            modifierGroupBox.Size = new Size(95, 40);
+
+            modifierSignGroupBox.Location = new Point(5, 20);
+            modifierSignGroupBox.Size = new Size(50, 40);
+
+            ComboBox modifierPlusSignComboBox = new ComboBox();
+            modifierSignGroupBox.Controls.Add(modifierPlusSignComboBox);
+            modifierPlusSignComboBox.Items.Add("+");
+            modifierPlusSignComboBox.Items.Add("-");
+            modifierPlusSignComboBox.Text = "+";
+            modifierPlusSignComboBox.Dock = DockStyle.Fill;
+            modifierPlusSignComboBox.Size = new Size(30, 30);
+
+            TextBox modifierTextBox = new TextBox();
+            modifierGroupBox.Controls.Add(modifierTextBox);
+            modifierTextBox.Dock = DockStyle.Fill;
+
+            /////////////////////////
+            GroupBox raceRestrictionGroupBox = new GroupBox();
+            raceRestrictionGroupBox.Text = "Race restriction";
+            GroupBox partOfBodyGroupBox = new GroupBox();
+            partOfBodyGroupBox.Text = "Part of body";
+            GroupBox costGroupBox = new GroupBox();
+            costGroupBox.Text = "Cost";
+
+            additionalParamsGroupBox.Controls.Add(raceRestrictionGroupBox);
+            additionalParamsGroupBox.Controls.Add(partOfBodyGroupBox);
+            additionalParamsGroupBox.Controls.Add(costGroupBox);
+
+            raceRestrictionGroupBox.Location = new Point(5, 60);
+            raceRestrictionGroupBox.Size = new Size(150, 40);
+            partOfBodyGroupBox.Location = new Point(5, 100);
+            partOfBodyGroupBox.Size = new Size(150, 40);
+            costGroupBox.Location = new Point(5, 140);
+            costGroupBox.Size = new Size(150, 40);
+
+
+            TextBox raceRestrictionTextBox = new TextBox();
+            TextBox partOfBodyTextBox = new TextBox();
+            TextBox costTextBox = new TextBox();
+
+            raceRestrictionGroupBox.Controls.Add(raceRestrictionTextBox);
+            partOfBodyGroupBox.Controls.Add(partOfBodyTextBox);
+            costGroupBox.Controls.Add(costTextBox);
+
+            raceRestrictionTextBox.Dock = DockStyle.Fill;
+            partOfBodyTextBox.Dock = DockStyle.Fill;
+            costTextBox.Dock = DockStyle.Fill;
+
+            CheckBox isBigItemCheckBox = new CheckBox();
+            isBigItemCheckBox.Text = "Big item";
+            additionalParamsGroupBox.Controls.Add(isBigItemCheckBox);
+            isBigItemCheckBox.Location = new Point(9, 180);
+
+            additionalParamsGroupBox.Show();
+        }
+        private void oneShotTreasureCardRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            additionalParamsGroupBox.Controls.Clear();
+            additionalParamsGroupBox.Size = new Size(170, 70);
+            tableLayoutPanel1.SetRowSpan(additionalParamsGroupBox, 2);
+
+            GroupBox costGroupBox = new GroupBox();
+            additionalParamsGroupBox.Controls.Add(costGroupBox);
+            costGroupBox.Text = "Cost";
+
+            additionalParamsGroupBox.Controls.Add(costGroupBox);
+
+            costGroupBox.Location = new Point(5, 20);
+            costGroupBox.Size = new Size(150, 40);
+
+            TextBox costTextBox = new TextBox();
+
+            costGroupBox.Controls.Add(costTextBox);
+
+            costTextBox.Dock = DockStyle.Fill;
+
+            additionalParamsGroupBox.Show();
+        }
+
+        private void otherCardRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            additionalParamsGroupBox.Controls.Clear();
+            additionalParamsGroupBox.Hide();
+        }
+
     }
 }

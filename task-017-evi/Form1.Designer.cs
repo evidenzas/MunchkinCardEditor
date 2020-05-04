@@ -37,15 +37,16 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.picturePathLabel = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.choosePictureButton = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.doorTypeRadioButton = new System.Windows.Forms.RadioButton();
-            this.TreasureTypeRadioButton = new System.Windows.Forms.RadioButton();
             this.otherTypeRadioButton = new System.Windows.Forms.RadioButton();
+            this.treasureTypeRadioButton = new System.Windows.Forms.RadioButton();
+            this.doorTypeRadioButton = new System.Windows.Forms.RadioButton();
             this.cardSubTypeGroupBox = new System.Windows.Forms.GroupBox();
+            this.additionalParamsGroupBox = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -74,6 +75,7 @@
             this.tableLayoutPanel1.Controls.Add(this.choosePictureButton, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBox4, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.cardSubTypeGroupBox, 2, 4);
+            this.tableLayoutPanel1.Controls.Add(this.additionalParamsGroupBox, 4, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -178,6 +180,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Card name";
             // 
+            // nameTextBox
+            // 
+            this.nameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.nameTextBox.Location = new System.Drawing.Point(3, 16);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(260, 20);
+            this.nameTextBox.TabIndex = 0;
+            // 
             // groupBox3
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.groupBox3, 2);
@@ -190,14 +200,6 @@
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Card Description";
-            // 
-            // nameTextBox
-            // 
-            this.nameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nameTextBox.Location = new System.Drawing.Point(3, 16);
-            this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(260, 20);
-            this.nameTextBox.TabIndex = 0;
             // 
             // descriptionTextBox
             // 
@@ -223,7 +225,7 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.otherTypeRadioButton);
-            this.groupBox4.Controls.Add(this.TreasureTypeRadioButton);
+            this.groupBox4.Controls.Add(this.treasureTypeRadioButton);
             this.groupBox4.Controls.Add(this.doorTypeRadioButton);
             this.groupBox4.Location = new System.Drawing.Point(94, 175);
             this.groupBox4.Name = "groupBox4";
@@ -232,30 +234,6 @@
             this.groupBox4.TabIndex = 10;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Card type";
-            // 
-            // doorTypeRadioButton
-            // 
-            this.doorTypeRadioButton.AutoSize = true;
-            this.doorTypeRadioButton.Location = new System.Drawing.Point(6, 19);
-            this.doorTypeRadioButton.Name = "doorTypeRadioButton";
-            this.doorTypeRadioButton.Size = new System.Drawing.Size(77, 17);
-            this.doorTypeRadioButton.TabIndex = 0;
-            this.doorTypeRadioButton.TabStop = true;
-            this.doorTypeRadioButton.Text = "Doors card";
-            this.doorTypeRadioButton.UseVisualStyleBackColor = true;
-            this.doorTypeRadioButton.CheckedChanged += new System.EventHandler(this.doorTypeRadioButton_CheckedChanged);
-            // 
-            // TreasureTypeRadioButton
-            // 
-            this.TreasureTypeRadioButton.AutoSize = true;
-            this.TreasureTypeRadioButton.Location = new System.Drawing.Point(6, 42);
-            this.TreasureTypeRadioButton.Name = "TreasureTypeRadioButton";
-            this.TreasureTypeRadioButton.Size = new System.Drawing.Size(96, 17);
-            this.TreasureTypeRadioButton.TabIndex = 1;
-            this.TreasureTypeRadioButton.TabStop = true;
-            this.TreasureTypeRadioButton.Text = "Treasures card";
-            this.TreasureTypeRadioButton.UseVisualStyleBackColor = true;
-            this.TreasureTypeRadioButton.CheckedChanged += new System.EventHandler(this.TreasureTypeRadioButton_CheckedChanged);
             // 
             // otherTypeRadioButton
             // 
@@ -269,6 +247,30 @@
             this.otherTypeRadioButton.UseVisualStyleBackColor = true;
             this.otherTypeRadioButton.CheckedChanged += new System.EventHandler(this.otherTypeRadioButton_CheckedChanged);
             // 
+            // treasureTypeRadioButton
+            // 
+            this.treasureTypeRadioButton.AutoSize = true;
+            this.treasureTypeRadioButton.Location = new System.Drawing.Point(6, 42);
+            this.treasureTypeRadioButton.Name = "treasureTypeRadioButton";
+            this.treasureTypeRadioButton.Size = new System.Drawing.Size(96, 17);
+            this.treasureTypeRadioButton.TabIndex = 1;
+            this.treasureTypeRadioButton.TabStop = true;
+            this.treasureTypeRadioButton.Text = "Treasures card";
+            this.treasureTypeRadioButton.UseVisualStyleBackColor = true;
+            this.treasureTypeRadioButton.CheckedChanged += new System.EventHandler(this.treasureTypeRadioButton_CheckedChanged);
+            // 
+            // doorTypeRadioButton
+            // 
+            this.doorTypeRadioButton.AutoSize = true;
+            this.doorTypeRadioButton.Location = new System.Drawing.Point(6, 19);
+            this.doorTypeRadioButton.Name = "doorTypeRadioButton";
+            this.doorTypeRadioButton.Size = new System.Drawing.Size(77, 17);
+            this.doorTypeRadioButton.TabIndex = 0;
+            this.doorTypeRadioButton.TabStop = true;
+            this.doorTypeRadioButton.Text = "Doors card";
+            this.doorTypeRadioButton.UseVisualStyleBackColor = true;
+            this.doorTypeRadioButton.CheckedChanged += new System.EventHandler(this.doorTypeRadioButton_CheckedChanged);
+            // 
             // cardSubTypeGroupBox
             // 
             this.cardSubTypeGroupBox.Location = new System.Drawing.Point(230, 175);
@@ -278,6 +280,17 @@
             this.cardSubTypeGroupBox.TabIndex = 11;
             this.cardSubTypeGroupBox.TabStop = false;
             this.cardSubTypeGroupBox.Text = "Crad subtype";
+            // 
+            // additionalParamsGroupBox
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.additionalParamsGroupBox, 2);
+            this.additionalParamsGroupBox.Location = new System.Drawing.Point(639, 46);
+            this.additionalParamsGroupBox.Name = "additionalParamsGroupBox";
+            this.tableLayoutPanel1.SetRowSpan(this.additionalParamsGroupBox, 8);
+            this.additionalParamsGroupBox.Size = new System.Drawing.Size(202, 165);
+            this.additionalParamsGroupBox.TabIndex = 12;
+            this.additionalParamsGroupBox.TabStop = false;
+            this.additionalParamsGroupBox.Text = "Additional card params";
             // 
             // Form1
             // 
@@ -320,9 +333,10 @@
         private System.Windows.Forms.Button choosePictureButton;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.RadioButton otherTypeRadioButton;
-        private System.Windows.Forms.RadioButton TreasureTypeRadioButton;
+        private System.Windows.Forms.RadioButton treasureTypeRadioButton;
         private System.Windows.Forms.RadioButton doorTypeRadioButton;
         private System.Windows.Forms.GroupBox cardSubTypeGroupBox;
+        private System.Windows.Forms.GroupBox additionalParamsGroupBox;
     }
 }
 

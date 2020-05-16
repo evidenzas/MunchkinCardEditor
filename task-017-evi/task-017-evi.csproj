@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CardPreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CardPreview.Designer.cs">
+      <DependentUpon>CardPreview.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Card.cs" />
     <Compile Include="Model\Door.cs" />
     <Compile Include="Model\Doors\CurseCard.cs" />
@@ -67,6 +73,15 @@
     <Compile Include="Model\Treasures\OneShotTreasureCard.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TranspTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TranspTextBox.Designer.cs">
+      <DependentUpon>TranspTextBox.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CardPreview.resx">
+      <DependentUpon>CardPreview.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

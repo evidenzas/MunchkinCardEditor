@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -398,6 +399,7 @@ namespace task_017_evi
         }
 
         //UI validation for only nums input
+        //split
         private void modifierTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -406,6 +408,7 @@ namespace task_017_evi
             }
         }
 
+        //split
         private void costTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -437,5 +440,60 @@ namespace task_017_evi
                 e.Handled = true;
             }
         }
+
+        private void colorButton_Click(object sender, EventArgs e)
+        {
+            var cd = new ColorDialog();
+            cd.ShowDialog();
+            this.BackColor = cd.Color;
+            colorButton.BackColor = cd.Color;
+            createNewCardButton.BackColor = cd.Color;
+            saveDraftButton.BackColor = cd.Color;
+            saveCardButton.BackColor = cd.Color;
+            loadDraftButton.BackColor = cd.Color;
+            choosePictureButton.BackColor = cd.Color;
+        }
+        /*
+        private void saveCardButton_Click(object sender, EventArgs e)
+        {
+            if() 
+            {
+                //smt
+                MessageBox.Show("class card created");
+            }
+        }*/
+
+
+        private void saveCardButton_Click(object sender, EventArgs e)
+        {
+            foreach (RadioButton rb in cardSubTypeGroupBox.Controls)
+            {
+                if (rb.Checked)
+                {
+                    CardPreview cp = new CardPreview();
+                    cp.pictureBox1.Image = pictureBox1.Image;
+                    cp.nameLabel.Text = nameTextBox.Text;
+                    cp.cardDescLabel.Text = descriptionTextBox.Text;
+
+                    switch (rb.Text)
+                    {
+                        case "Class card":
+                            cp.ShowDialog();
+                            break;
+                        case "Curse card":
+                            //add creation
+                            break;
+                    }
+                    //MessageBox.Show(rb.Text + " created");
+                }
+                else MessageBox.Show("Select card sub-type");
+                break;
+            }
+        }
+
+
+
+
+
     }
 }

@@ -47,6 +47,7 @@
             this.doorTypeRadioButton = new System.Windows.Forms.RadioButton();
             this.cardSubTypeGroupBox = new System.Windows.Forms.GroupBox();
             this.additionalParamsGroupBox = new System.Windows.Forms.GroupBox();
+            this.colorButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -61,9 +62,9 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel1.Controls.Add(this.createNewCardButton, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.saveDraftButton, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.saveCardButton, 0, 2);
@@ -76,21 +77,22 @@
             this.tableLayoutPanel1.Controls.Add(this.groupBox4, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.cardSubTypeGroupBox, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.additionalParamsGroupBox, 4, 1);
+            this.tableLayoutPanel1.Controls.Add(this.colorButton, 0, 10);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 11;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(910, 474);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -112,7 +114,7 @@
             this.saveDraftButton.Name = "saveDraftButton";
             this.saveDraftButton.Size = new System.Drawing.Size(85, 37);
             this.saveDraftButton.TabIndex = 2;
-            this.saveDraftButton.Text = "Save draft";
+            this.saveDraftButton.Text = "Save as draft";
             this.saveDraftButton.UseVisualStyleBackColor = true;
             // 
             // saveCardButton
@@ -122,8 +124,9 @@
             this.saveCardButton.Name = "saveCardButton";
             this.saveCardButton.Size = new System.Drawing.Size(85, 37);
             this.saveCardButton.TabIndex = 1;
-            this.saveCardButton.Text = "Save card";
+            this.saveCardButton.Text = "Preview and save";
             this.saveCardButton.UseVisualStyleBackColor = true;
+            this.saveCardButton.Click += new System.EventHandler(this.saveCardButton_Click);
             // 
             // loadDraftButton
             // 
@@ -141,7 +144,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(366, 46);
             this.pictureBox1.Name = "pictureBox1";
             this.tableLayoutPanel1.SetRowSpan(this.pictureBox1, 6);
-            this.pictureBox1.Size = new System.Drawing.Size(267, 252);
+            this.pictureBox1.Size = new System.Drawing.Size(312, 252);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -153,7 +156,7 @@
             this.groupBox1.Controls.Add(this.picturePathLabel);
             this.groupBox1.Location = new System.Drawing.Point(366, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(403, 37);
+            this.groupBox1.Size = new System.Drawing.Size(494, 37);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Picture path";
@@ -284,13 +287,24 @@
             // additionalParamsGroupBox
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.additionalParamsGroupBox, 2);
-            this.additionalParamsGroupBox.Location = new System.Drawing.Point(639, 46);
+            this.additionalParamsGroupBox.Location = new System.Drawing.Point(684, 46);
             this.additionalParamsGroupBox.Name = "additionalParamsGroupBox";
             this.tableLayoutPanel1.SetRowSpan(this.additionalParamsGroupBox, 8);
-            this.additionalParamsGroupBox.Size = new System.Drawing.Size(202, 165);
+            this.additionalParamsGroupBox.Size = new System.Drawing.Size(192, 165);
             this.additionalParamsGroupBox.TabIndex = 12;
             this.additionalParamsGroupBox.TabStop = false;
             this.additionalParamsGroupBox.Text = "Additional card params";
+            // 
+            // colorButton
+            // 
+            this.colorButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.colorButton.Location = new System.Drawing.Point(3, 433);
+            this.colorButton.Name = "colorButton";
+            this.colorButton.Size = new System.Drawing.Size(85, 38);
+            this.colorButton.TabIndex = 13;
+            this.colorButton.Text = "UI Color";
+            this.colorButton.UseVisualStyleBackColor = true;
+            this.colorButton.Click += new System.EventHandler(this.colorButton_Click);
             // 
             // Form1
             // 
@@ -337,6 +351,7 @@
         private System.Windows.Forms.RadioButton doorTypeRadioButton;
         private System.Windows.Forms.GroupBox cardSubTypeGroupBox;
         private System.Windows.Forms.GroupBox additionalParamsGroupBox;
+        private System.Windows.Forms.Button colorButton;
     }
 }
 

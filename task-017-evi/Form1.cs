@@ -210,6 +210,7 @@ namespace task_017_evi
             modifierPlusSignComboBox.Items.Add("+");
             modifierPlusSignComboBox.Items.Add("-");
             modifierPlusSignComboBox.Text = "+";
+            modifierPlusSignComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             modifierPlusSignComboBox.Dock = DockStyle.Fill;
             modifierPlusSignComboBox.Size = new Size(30, 30);
 
@@ -300,31 +301,32 @@ namespace task_017_evi
             additionalParamsGroupBox.Size = new Size(160, 350);
             tableLayoutPanel1.SetRowSpan(additionalParamsGroupBox, 5);
 
-            GroupBox modifierGroupBox = new GroupBox();
-            additionalParamsGroupBox.Controls.Add(modifierGroupBox);
-            modifierGroupBox.Text = "Modifier";
+            GroupBox itemModifierGroupBox = new GroupBox();
+            additionalParamsGroupBox.Controls.Add(itemModifierGroupBox);
+            itemModifierGroupBox.Text = "Modifier";
 
-            GroupBox modifierSignGroupBox = new GroupBox();
-            additionalParamsGroupBox.Controls.Add(modifierSignGroupBox);
-            modifierSignGroupBox.Text = "Sign";
+            GroupBox itemModifierSignGroupBox = new GroupBox();
+            additionalParamsGroupBox.Controls.Add(itemModifierSignGroupBox);
+            itemModifierSignGroupBox.Text = "Sign";
 
-            modifierGroupBox.Location = new Point(60, 20);
-            modifierGroupBox.Size = new Size(95, 40);
+            itemModifierGroupBox.Location = new Point(60, 20);
+            itemModifierGroupBox.Size = new Size(95, 40);
 
-            modifierSignGroupBox.Location = new Point(5, 20);
-            modifierSignGroupBox.Size = new Size(50, 40);
+            itemModifierSignGroupBox.Location = new Point(5, 20);
+            itemModifierSignGroupBox.Size = new Size(50, 40);
 
-            ComboBox modifierPlusSignComboBox = new ComboBox();
-            modifierSignGroupBox.Controls.Add(modifierPlusSignComboBox);
-            modifierPlusSignComboBox.Items.Add("+");
-            modifierPlusSignComboBox.Items.Add("-");
-            modifierPlusSignComboBox.Text = "+";
-            modifierPlusSignComboBox.Dock = DockStyle.Fill;
-            modifierPlusSignComboBox.Size = new Size(30, 30);
+            ComboBox itemModifierPlusSignComboBox = new ComboBox();
+            itemModifierSignGroupBox.Controls.Add(itemModifierPlusSignComboBox);
+            itemModifierPlusSignComboBox.Items.Add("+");
+            itemModifierPlusSignComboBox.Items.Add("-");
+            itemModifierPlusSignComboBox.Text = "+";
+            itemModifierPlusSignComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            itemModifierPlusSignComboBox.Dock = DockStyle.Fill;
+            itemModifierPlusSignComboBox.Size = new Size(30, 30);
 
-            TextBox modifierTextBox = new TextBox();
-            modifierGroupBox.Controls.Add(modifierTextBox);
-            modifierTextBox.Dock = DockStyle.Fill;
+            TextBox itemModifierTextBox = new TextBox();
+            itemModifierGroupBox.Controls.Add(itemModifierTextBox);
+            itemModifierTextBox.Dock = DockStyle.Fill;
 
             GroupBox raceRestrictionGroupBox = new GroupBox();
             raceRestrictionGroupBox.Text = "Race restriction";
@@ -361,7 +363,7 @@ namespace task_017_evi
             additionalParamsGroupBox.Controls.Add(isBigItemCheckBox);
             isBigItemCheckBox.Location = new Point(9, 180);
 
-            modifierTextBox.KeyPress += modifierTextBox_KeyPress;
+            itemModifierTextBox.KeyPress += itemModifierTextBox_KeyPress;
             costTextBox.KeyPress += costTextBox_KeyPress;
 
             additionalParamsGroupBox.Show();
@@ -372,22 +374,22 @@ namespace task_017_evi
             additionalParamsGroupBox.Size = new Size(170, 70);
             tableLayoutPanel1.SetRowSpan(additionalParamsGroupBox, 2);
 
-            GroupBox costGroupBox = new GroupBox();
-            additionalParamsGroupBox.Controls.Add(costGroupBox);
-            costGroupBox.Text = "Cost";
+            GroupBox costOSTGroupBox = new GroupBox();
+            additionalParamsGroupBox.Controls.Add(costOSTGroupBox);
+            costOSTGroupBox.Text = "Cost";
 
-            additionalParamsGroupBox.Controls.Add(costGroupBox);
+            additionalParamsGroupBox.Controls.Add(costOSTGroupBox);
 
-            costGroupBox.Location = new Point(5, 20);
-            costGroupBox.Size = new Size(150, 40);
+            costOSTGroupBox.Location = new Point(5, 20);
+            costOSTGroupBox.Size = new Size(150, 40);
 
-            TextBox costTextBox = new TextBox();
+            TextBox costOSTTextBox = new TextBox();
 
-            costGroupBox.Controls.Add(costTextBox);
+            costOSTGroupBox.Controls.Add(costOSTTextBox);
 
-            costTextBox.Dock = DockStyle.Fill;
+            costOSTTextBox.Dock = DockStyle.Fill;
 
-            costTextBox.KeyPress += costTextBox_KeyPress;
+            costOSTTextBox.KeyPress += costOSTTextBox_KeyPress;
 
             additionalParamsGroupBox.Show();
         }
@@ -399,7 +401,6 @@ namespace task_017_evi
         }
 
         //UI validation for only nums input
-        //split
         private void modifierTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -408,8 +409,21 @@ namespace task_017_evi
             }
         }
 
-        //split
+        private void itemModifierTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
         private void costTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void costOSTTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
@@ -453,42 +467,106 @@ namespace task_017_evi
             loadDraftButton.BackColor = cd.Color;
             choosePictureButton.BackColor = cd.Color;
         }
-        /*
-        private void saveCardButton_Click(object sender, EventArgs e)
+
+        public static string GetMyData(Control container, int controlIndex, int depth)
         {
-            if() 
+            var myContainer = container;
+            for (int i = 0; i < depth; i++)
             {
-                //smt
-                MessageBox.Show("class card created");
+                if (myContainer.Controls == null || myContainer.Controls.Count == 0) return null;
+
+                myContainer = myContainer.Controls.Cast<Control>().Where(
+                    c => c is GroupBox || c is FlowLayoutPanel || c is TableLayoutPanel).FirstOrDefault();
+                if (myContainer == null) return null;
             }
-        }*/
 
-
-        private void saveCardButton_Click(object sender, EventArgs e)
-        {
-            foreach (RadioButton rb in cardSubTypeGroupBox.Controls)
+            if (myContainer.Controls.Count - 1 < controlIndex) return null;
+            var myControl = container.Controls[controlIndex];
+            switch (myControl)
             {
-                if (rb.Checked)
-                {
-                    CardPreview cp = new CardPreview();
-                    cp.pictureBox1.Image = pictureBox1.Image;
-                    cp.nameLabel.Text = nameTextBox.Text;
-                    cp.cardDescLabel.Text = descriptionTextBox.Text;
+                case TextBox _:
+                    return myControl.Text;
+                case ComboBox _:
+                    return myControl.Text;
+             //   case RadioButton _:
+             //       return (myControl as RadioButton).Checked;
+                default:
+                    return null;
+            }
 
-                    switch (rb.Text)
+        }
+
+
+        public static string GetMyText(Control container, int controlIndex) {
+            if (container.Controls == null || container.Controls.Count - 1 < controlIndex) return null;
+
+            var myControl = container.Controls[controlIndex];
+            switch (myControl)
+            {
+                case GroupBox _:
+                    if (myControl.Controls == null) return null;
+                    var myGroupBox = container.Controls[0];
+                    switch (myGroupBox)
                     {
-                        case "Class card":
-                            cp.ShowDialog();
-                            break;
-                        case "Curse card":
-                            //add creation
-                            break;
+                        case TextBox _:
+                            return myGroupBox.Text;
+                        case ComboBox _:
+                            return myGroupBox.Text;
+                        default:
+                            return null;
                     }
-                    //MessageBox.Show(rb.Text + " created");
-                }
-                else MessageBox.Show("Select card sub-type");
-                break;
+                case TextBox _:
+                    return myControl.Text;
+                case ComboBox _:
+                    return myControl.Text;
+                default:
+                    return null;
             }
+        }
+
+        private void saveCardButton_Click(object sender, EventArgs e)
+        {
+            var checkedButton = cardSubTypeGroupBox.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
+
+            if (checkedButton != null && checkedButton.Checked)
+            {
+                CardPreview cp = new CardPreview();
+                cp.pictureBox1.Image = pictureBox1.Image;
+                cp.nameLabel.Text = nameTextBox.Text;
+                cp.cardDescLabel.Text = descriptionTextBox.Text;
+
+                switch (checkedButton.Text)
+                {
+                    case "Class card":
+                        break;
+                    case "Curse card":
+                        break;
+                    case "Modifier card":
+                        string sign = GetMyText(additionalParamsGroupBox, 0);
+                        string mod = GetMyData(additionalParamsGroupBox, 1, 0);
+                        cp.modifierLabel.Text = additionalParamsGroupBox.Controls[1].Controls[0].Text + additionalParamsGroupBox.Controls[0].Controls[0].Text + " to the monster level";
+
+                        cp.modifierLabel.Visible = true;
+                        break;
+                    case "Monster card":
+                        //add addit fields
+                        break;
+                    case "Race card":
+                        break;
+                    case "Go up a level card":
+                        break;
+                    case "Item card":
+                        //add addit fields
+                        break;
+                    case "One shot trasure card":
+                        //add addit fields
+                        break;
+                    case "Other card":
+                        break;
+                }
+                cp.ShowDialog();
+            }
+            else MessageBox.Show("Select card sub-type");
         }
 
 

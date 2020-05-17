@@ -22,16 +22,18 @@ namespace task_017_evi
             //cardDescLabel.Parent = pictureBox1;
             nameLabel.Parent = tableLayoutPanel1;
             cardDescLabel.Parent = tableLayoutPanel1;
+            modifierLabel.Parent = tableLayoutPanel1;
 
             nameLabel.BackColor = Color.Transparent;
             cardDescLabel.BackColor = Color.Transparent;
+            modifierLabel.BackColor = Color.Transparent;
 
             nameLabel.TextAlign = ContentAlignment.MiddleCenter;
-
-            //cardDescLabel.MaximumSize = new Size(100, 0);
-            cardDescLabel.AutoSize = true;
             cardDescLabel.TextAlign = ContentAlignment.MiddleCenter;
-
+            //cardDescLabel.MaximumSize = new Size(100, 0);
+            nameLabel.AutoSize = true;
+            cardDescLabel.AutoSize = true;
+            modifierLabel.AutoSize = true;
         }
 
         public void winCapture()
@@ -75,6 +77,8 @@ namespace task_017_evi
             cd.ShowDialog();
             nameLabel.ForeColor = cd.Color;
             cardDescLabel.ForeColor = cd.Color;
+            modifierLabel.ForeColor = cd.Color;
+            //TODO: save of selected colour (add to init)
 
         }
 

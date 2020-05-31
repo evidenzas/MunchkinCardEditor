@@ -68,15 +68,16 @@ namespace task_017_evi.Model
             card.Sign = modSign;
             card.RaceRestriction = cardRaceRestriction;
             card.PartOfBody = cardPartOfBody;
-            if (!string.IsNullOrEmpty(сardCost)) card.Cost = int.Parse(сardCost);
+            card.Cost = сardCost;
             if (!string.IsNullOrEmpty(cardIsBigItem)) card.IsBigItem = bool.Parse(cardIsBigItem);
         }
 
         public static void FillAdvFiledsOfCard(OneShotTreasureCard card, string cardCost)
         {
-            if (!string.IsNullOrEmpty(cardCost)) card.Cost = int.Parse(cardCost);
+            card.Cost = cardCost;
         }
 
+        
         /*
         switch (typeof(card))
             {

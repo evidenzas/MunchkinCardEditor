@@ -34,19 +34,23 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cardDescLabel = new System.Windows.Forms.Label();
+            this.modifierLabel = new System.Windows.Forms.Label();
             this.backColorButton = new System.Windows.Forms.Button();
             this.fontColorButton = new System.Windows.Forms.Button();
-            this.modifierLabel = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.leftBottomLabel = new System.Windows.Forms.Label();
+            this.rightBottomLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // nameLabel
             // 
             this.nameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.nameLabel.Location = new System.Drawing.Point(3, 10);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(328, 25);
@@ -72,17 +76,18 @@
             this.tableLayoutPanel1.Controls.Add(this.cardDescLabel, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.modifierLabel, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.nameLabel, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 6);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowCount = 7;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(334, 466);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
@@ -90,17 +95,17 @@
             // 
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 95);
+            this.panel1.Location = new System.Drawing.Point(3, 72);
             this.panel1.Name = "panel1";
             this.tableLayoutPanel1.SetRowSpan(this.panel1, 3);
-            this.panel1.Size = new System.Drawing.Size(328, 273);
+            this.panel1.Size = new System.Drawing.Size(328, 249);
             this.panel1.TabIndex = 7;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(24, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(322, 267);
+            this.pictureBox1.Size = new System.Drawing.Size(281, 240);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
@@ -109,12 +114,25 @@
             this.cardDescLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cardDescLabel.AutoSize = true;
             this.cardDescLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cardDescLabel.Location = new System.Drawing.Point(100, 371);
+            this.cardDescLabel.Location = new System.Drawing.Point(100, 324);
             this.cardDescLabel.Name = "cardDescLabel";
             this.cardDescLabel.Size = new System.Drawing.Size(134, 18);
             this.cardDescLabel.TabIndex = 7;
             this.cardDescLabel.Text = "no card description";
             this.cardDescLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // modifierLabel
+            // 
+            this.modifierLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.modifierLabel.AutoSize = true;
+            this.modifierLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.modifierLabel.Location = new System.Drawing.Point(3, 47);
+            this.modifierLabel.Name = "modifierLabel";
+            this.modifierLabel.Size = new System.Drawing.Size(328, 20);
+            this.modifierLabel.TabIndex = 8;
+            this.modifierLabel.Text = "no modifier";
+            this.modifierLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.modifierLabel.Visible = false;
             // 
             // backColorButton
             // 
@@ -136,18 +154,37 @@
             this.fontColorButton.UseVisualStyleBackColor = true;
             this.fontColorButton.Click += new System.EventHandler(this.fontColorButton_Click);
             // 
-            // modifierLabel
+            // panel2
             // 
-            this.modifierLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.modifierLabel.AutoSize = true;
-            this.modifierLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.modifierLabel.Location = new System.Drawing.Point(3, 59);
-            this.modifierLabel.Name = "modifierLabel";
-            this.modifierLabel.Size = new System.Drawing.Size(328, 20);
-            this.modifierLabel.TabIndex = 8;
-            this.modifierLabel.Text = "no modifier";
-            this.modifierLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.modifierLabel.Visible = false;
+            this.panel2.Controls.Add(this.rightBottomLabel);
+            this.panel2.Controls.Add(this.leftBottomLabel);
+            this.panel2.Location = new System.Drawing.Point(3, 420);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(328, 43);
+            this.panel2.TabIndex = 9;
+            // 
+            // leftBottomLabel
+            // 
+            this.leftBottomLabel.AutoSize = true;
+            this.leftBottomLabel.Location = new System.Drawing.Point(9, 0);
+            this.leftBottomLabel.Name = "leftBottomLabel";
+            this.leftBottomLabel.Size = new System.Drawing.Size(21, 13);
+            this.leftBottomLabel.TabIndex = 0;
+            this.leftBottomLabel.Text = "left";
+            this.leftBottomLabel.Visible = false;
+            // 
+            // rightBottomLabel
+            // 
+            this.rightBottomLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rightBottomLabel.AutoEllipsis = true;
+            this.rightBottomLabel.AutoSize = true;
+            this.rightBottomLabel.Location = new System.Drawing.Point(257, 0);
+            this.rightBottomLabel.Name = "rightBottomLabel";
+            this.rightBottomLabel.Size = new System.Drawing.Size(27, 13);
+            this.rightBottomLabel.TabIndex = 1;
+            this.rightBottomLabel.Text = "right";
+            this.rightBottomLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.rightBottomLabel.Visible = false;
             // 
             // CardPreview
             // 
@@ -169,6 +206,8 @@
             this.tableLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -183,5 +222,8 @@
         private System.Windows.Forms.Button backColorButton;
         private System.Windows.Forms.Button fontColorButton;
         public System.Windows.Forms.Label modifierLabel;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label rightBottomLabel;
+        private System.Windows.Forms.Label leftBottomLabel;
     }
 }

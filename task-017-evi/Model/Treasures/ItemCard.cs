@@ -12,7 +12,7 @@ namespace task_017_evi.Model.Treasures
         public string Sign { get; set; }
         public string RaceRestriction { get; set; }
         public string PartOfBody { get; set; }
-        public int Cost  { get; set; }
+        public string Cost  { get; set; }
         public bool IsBigItem  { get; set; }
     }
 }

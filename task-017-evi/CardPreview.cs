@@ -8,12 +8,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using task_017_evi.Cards;
+using task_017_evi.Model.Doors;
+using task_017_evi.Model.Others;
+using task_017_evi.Model.Treasures;
 
 namespace task_017_evi
 {
     public partial class CardPreview : Form
     {
-        public CardPreview()
+        public Card viewedCard;
+        public CardPreview(Card card)
         {
             InitializeComponent();
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -27,6 +32,8 @@ namespace task_017_evi
             nameLabel.BackColor = Color.Transparent;
             cardDescLabel.BackColor = Color.Transparent;
             modifierLabel.BackColor = Color.Transparent;
+            leftBottomLabel.BackColor = Color.Transparent;
+            rightBottomLabel.BackColor = Color.Transparent;
 
             nameLabel.TextAlign = ContentAlignment.MiddleCenter;
             cardDescLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -34,6 +41,33 @@ namespace task_017_evi
             nameLabel.AutoSize = true;
             cardDescLabel.AutoSize = true;
             modifierLabel.AutoSize = true;
+            leftBottomLabel.AutoSize = true;
+            rightBottomLabel.AutoSize = true;
+
+            viewedCard = card;
+            Color fontCardColor = card.FontCardColor == null ? Color.Black : card.FontCardColor;
+            Color backCardColor = card.BackCardColor == null ? SystemColors.Control : card.BackCardColor;
+            fontColorFormInit(fontCardColor);
+            backColorFormInit(backCardColor);
+
+            SetUpPreview(card);
+        }
+
+        public void fontColorFormInit(Color fontColor)
+        {
+            nameLabel.ForeColor = fontColor;
+            cardDescLabel.ForeColor = fontColor;
+            modifierLabel.ForeColor = fontColor;
+            rightBottomLabel.ForeColor = fontColor;
+            leftBottomLabel.ForeColor = fontColor;
+        }
+
+        public void backColorFormInit(Color backColor)
+        {
+            this.BackColor = backColor;
+            tableLayoutPanel1.BackColor = backColor;
+            panel1.BackColor = backColor;
+            pictureBox1.BackColor = backColor;
         }
 
         public void winCapture()
@@ -75,23 +109,62 @@ namespace task_017_evi
         {
             var cd = new ColorDialog();
             cd.ShowDialog();
-            nameLabel.ForeColor = cd.Color;
-            cardDescLabel.ForeColor = cd.Color;
-            modifierLabel.ForeColor = cd.Color;
+            fontColorFormInit(cd.Color);
+            viewedCard.FontCardColor = cd.Color;
             //TODO: save of selected colour (add to init)
-
         }
 
         private void backColorButton_Click(object sender, EventArgs e)
         {
             var cd = new ColorDialog();
             cd.ShowDialog();
-            this.BackColor = cd.Color;
-            tableLayoutPanel1.BackColor = cd.Color;
-            panel1.BackColor = cd.Color;
-            pictureBox1.BackColor = cd.Color;
+            backColorFormInit(cd.Color);
+            viewedCard.BackCardColor = cd.Color;
+        }
+
+        public void SetUpPreview(Card card)
+        {
+            //typeof(card)
+            pictureBox1.Image = card.PicturePath;
+            nameLabel.Text = card.Name;
+            cardDescLabel.Text = card.Description;
+            switch (card)
+            {
+                case ClassCard _:
+                    break;
+                case CurseCard _:
+                    nameLabel.Text = "Curse! \n" + card.Name;
+                    break;
+                case ModifierCard _:
+                    modifierLabel.Text = ((ModifierCard)card).Sign + " " + ((ModifierCard)card).Modifier + " to the monster level";
+                    if (((ModifierCard)card).Modifier != 0) modifierLabel.Visible = true;
+                    break;
+                case MonsterCard _:
+                    break;
+                case RaceCard _:
+                    break;
+                case GoUpALevelCard _:
+                    break;
+                case ItemCard _:
+                    modifierLabel.Text = "Bonus " + ((ItemCard)card).Sign + " " + ((ItemCard)card).Modifier;
+                    if (((ItemCard)card).Modifier != 0) modifierLabel.Visible = true;
+                    rightBottomLabel.Text = ((ItemCard)card).Cost;
+                    leftBottomLabel.Text = ((ItemCard)card).PartOfBody;
+                    if (((ItemCard)card).IsBigItem) leftBottomLabel.Text += " \n Big";
+                    rightBottomLabel.Visible = true;
+                    leftBottomLabel.Visible = true;
+                    break;
+                case OneShotTreasureCard _:
+                    rightBottomLabel.Text = ((OneShotTreasureCard)card).Cost;
+                    rightBottomLabel.Visible = true;
+                    break;
+                case OtherCard _:
+                    break;
+                default:
+                    break;
+            }
+
         }
     }
-
 
 }

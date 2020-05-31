@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace task_017_evi.Cards
 {
-    class Card
+    public class Card
     {
         public string Name { get; set; }
         public string Description { get; set; }

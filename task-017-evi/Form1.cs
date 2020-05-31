@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using task_017_evi.Cards;
 using task_017_evi.Model;
 using task_017_evi.Model.Doors;
 using task_017_evi.Model.Treasures;
@@ -17,6 +18,7 @@ namespace task_017_evi
 {
     public partial class Form1 : Form
     {
+        public Card card;
         public Form1()
         {
             InitializeComponent();
@@ -367,7 +369,7 @@ namespace task_017_evi
             isBigItemCheckBox.Location = new Point(9, 180);
 
             itemModifierTextBox.KeyPress += itemModifierTextBox_KeyPress;
-            costTextBox.KeyPress += costTextBox_KeyPress;
+            //costTextBox.KeyPress += costTextBox_KeyPress;
 
             additionalParamsGroupBox.Show();
         }
@@ -392,7 +394,7 @@ namespace task_017_evi
 
             costOSTTextBox.Dock = DockStyle.Fill;
 
-            costOSTTextBox.KeyPress += costOSTTextBox_KeyPress;
+            //costOSTTextBox.KeyPress += costOSTTextBox_KeyPress;
 
             additionalParamsGroupBox.Show();
         }
@@ -419,6 +421,7 @@ namespace task_017_evi
                 e.Handled = true;
             }
         }
+        /*
         private void costTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -433,6 +436,7 @@ namespace task_017_evi
                 e.Handled = true;
             }
         }
+        */
 
         private void monsterLevelTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -534,12 +538,16 @@ namespace task_017_evi
 
             if (checkedButton != null && checkedButton.Checked)
             {
-                CardPreview cp = new CardPreview();
-                cp.pictureBox1.Image = pictureBox1.Image;
-                cp.nameLabel.Text = nameTextBox.Text;
-                cp.cardDescLabel.Text = descriptionTextBox.Text;
-
-                var card = CardCreator.CreateNewCard(checkedButton.Text);
+                if (card == null) card = CardCreator.CreateNewCard(checkedButton.Text);
+                else
+                {
+                    Color fontColor = card.FontCardColor;
+                    Color backColor = card.BackCardColor;
+                    card = CardCreator.CreateNewCard(checkedButton.Text);
+                    card.FontCardColor = fontColor;
+                    card.BackCardColor = backColor;
+                }
+                //var card = CardCreator.CreateNewCard(checkedButton.Text);
                 CardCreator.FillMainFieldsOfCard(card, pictureBox1.Image, nameTextBox.Text, descriptionTextBox.Text);
 
                 switch (checkedButton.Text)
@@ -551,8 +559,8 @@ namespace task_017_evi
                             GetMyData(additionalParamsGroupBox, 0, 1, 0),
                             GetMyData(additionalParamsGroupBox, 0, 1, 1));
 
-                        cp.modifierLabel.Text = ((ModifierCard)card).Sign + " " + ((ModifierCard)card).Modifier + " to the Monster LEVEL";
-                        cp.modifierLabel.Visible = true;
+                        //cp.modifierLabel.Text = ((ModifierCard)card).Sign + " " + ((ModifierCard)card).Modifier + " to the Monster LEVEL";
+                        //cp.modifierLabel.Visible = true;
 
                         break;
                     case "Monster card":
@@ -563,8 +571,8 @@ namespace task_017_evi
                             GetMyData(additionalParamsGroupBox, 0, 1, 2),
                             GetMyData(additionalParamsGroupBox, 0, 1, 3));
 
-                        cp.modifierLabel.Text = "" + ((MonsterCard)card).Level.ToString();
-                        cp.modifierLabel.Visible = true;
+                        //cp.modifierLabel.Text = "" + ((MonsterCard)card).Level.ToString();
+                        //cp.modifierLabel.Visible = true;
 
                         break;
                     case "Item card":
@@ -574,12 +582,13 @@ namespace task_017_evi
                             GetMyData(additionalParamsGroupBox, 0, 1, 2),
                             GetMyData(additionalParamsGroupBox, 0, 1, 3),
                             GetMyData(additionalParamsGroupBox, 0, 1, 4),
-                            GetMyData(additionalParamsGroupBox, 0, 1, 5));
+                            GetMyData(additionalParamsGroupBox, 0, 0, 5));
                         break;
                     case "One shot trasure card":
                         CardCreator.FillAdvFiledsOfCard((OneShotTreasureCard)card, GetMyData(additionalParamsGroupBox, 0, 1, 0));
                         break;
                 }
+                CardPreview cp = new CardPreview(card);
                 cp.ShowDialog();
             }
             else MessageBox.Show("Select card sub-type");

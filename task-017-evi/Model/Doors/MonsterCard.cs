@@ -8,10 +8,10 @@ namespace task_017_evi.Model.Doors
 {
     class MonsterCard : Door
     {
-        private int Level { get; set; }
-        private string Race { get; set; }
-        private string BadStuff { get; set; }
-        private int TreasureReward { get; set; }
-        private int LevelReward { get; set; }
+        public int Level { get; set; }
+        public string Race { get; set; }
+        public string BadStuff { get; set; }
+        public int TreasureReward { get; set; }
+        public int LevelReward { get; set; }
     }
 }

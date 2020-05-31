@@ -8,10 +8,11 @@ namespace task_017_evi.Model.Treasures
 {
     class ItemCard :Treasure
     {
-        private int Modifier { get; set; }
-        private string RaceRestriction { get; set; }
-        private string PartOfBody { get; set; }
-        private int Cost  { get; set; }
-        private bool IsBigItem  { get; set; }
+        public int Modifier { get; set; }
+        public string Sign { get; set; }
+        public string RaceRestriction { get; set; }
+        public string PartOfBody { get; set; }
+        public int Cost  { get; set; }
+        public bool IsBigItem  { get; set; }
     }
 }

@@ -8,6 +8,7 @@ namespace task_017_evi.Model.Doors
 {
     class ModifierCard : Door
     {
-        private int modifier { get; set; }
+        public int Modifier { get; set; }
+        public string Sign { get; set; }
     }
 }

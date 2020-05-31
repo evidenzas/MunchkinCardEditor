@@ -53,6 +53,7 @@
       <DependentUpon>CardPreview.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Card.cs" />
+    <Compile Include="Model\CardCreator.cs" />
     <Compile Include="Model\Door.cs" />
     <Compile Include="Model\Doors\CurseCard.cs" />
     <Compile Include="Model\Doors\ModifierCard.cs" />

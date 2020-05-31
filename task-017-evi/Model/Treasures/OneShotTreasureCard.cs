@@ -8,6 +8,6 @@ namespace task_017_evi.Model.Treasures
 {
     class OneShotTreasureCard : Treasure
     {
-        private int Cost { get; set; }
+        public int Cost { get; set; }
     }
 }

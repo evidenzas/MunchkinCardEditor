@@ -337,13 +337,10 @@
         private System.Windows.Forms.Button saveDraftButton;
         private System.Windows.Forms.Button saveCardButton;
         private System.Windows.Forms.Button loadDraftButton;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label picturePathLabel;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox nameTextBox;
-        private System.Windows.Forms.TextBox descriptionTextBox;
         private System.Windows.Forms.Button choosePictureButton;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.RadioButton otherTypeRadioButton;
@@ -352,6 +349,9 @@
         private System.Windows.Forms.GroupBox cardSubTypeGroupBox;
         private System.Windows.Forms.GroupBox additionalParamsGroupBox;
         private System.Windows.Forms.Button colorButton;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox nameTextBox;
+        private System.Windows.Forms.TextBox descriptionTextBox;
     }
 }
 

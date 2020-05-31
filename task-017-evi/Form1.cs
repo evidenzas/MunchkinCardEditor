@@ -9,6 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using task_017_evi.Model;
+using task_017_evi.Model.Doors;
+using task_017_evi.Model.Treasures;
 
 namespace task_017_evi
 {
@@ -468,20 +471,20 @@ namespace task_017_evi
             choosePictureButton.BackColor = cd.Color;
         }
 
-        public static string GetMyData(Control container, int controlIndex, int depth)
+        public static string GetMyData(Control container, int controlIndex, int depth, params int[] containerIndicies)
         {
             var myContainer = container;
             for (int i = 0; i < depth; i++)
             {
-                if (myContainer.Controls == null || myContainer.Controls.Count == 0) return null;
+                if (myContainer.Controls == null || myContainer.Controls.Count - 1 < containerIndicies[i]) return null;
 
                 myContainer = myContainer.Controls.Cast<Control>().Where(
-                    c => c is GroupBox || c is FlowLayoutPanel || c is TableLayoutPanel).FirstOrDefault();
+                    c => c is GroupBox || c is FlowLayoutPanel || c is TableLayoutPanel).ElementAt(containerIndicies[i]);
                 if (myContainer == null) return null;
             }
 
             if (myContainer.Controls.Count - 1 < controlIndex) return null;
-            var myControl = container.Controls[controlIndex];
+            var myControl = myContainer.Controls[controlIndex];
             switch (myControl)
             {
                 case TextBox _:
@@ -497,7 +500,8 @@ namespace task_017_evi
         }
 
 
-        public static string GetMyText(Control container, int controlIndex) {
+        public static string GetMyText(Control container, int controlIndex) 
+        {
             if (container.Controls == null || container.Controls.Count - 1 < controlIndex) return null;
 
             var myControl = container.Controls[controlIndex];
@@ -535,33 +539,45 @@ namespace task_017_evi
                 cp.nameLabel.Text = nameTextBox.Text;
                 cp.cardDescLabel.Text = descriptionTextBox.Text;
 
+                var card = CardCreator.CreateNewCard(checkedButton.Text);
+                CardCreator.FillMainFieldsOfCard(card, pictureBox1.Image, nameTextBox.Text, descriptionTextBox.Text);
+
                 switch (checkedButton.Text)
                 {
-                    case "Class card":
-                        break;
-                    case "Curse card":
-                        break;
                     case "Modifier card":
-                        string sign = GetMyText(additionalParamsGroupBox, 0);
-                        string mod = GetMyData(additionalParamsGroupBox, 1, 0);
-                        cp.modifierLabel.Text = additionalParamsGroupBox.Controls[1].Controls[0].Text + additionalParamsGroupBox.Controls[0].Controls[0].Text + " to the monster level";
+                        //cp.modifierLabel.Text = additionalParamsGroupBox.Controls[1].Controls[0].Text + additionalParamsGroupBox.Controls[0].Controls[0].Text + " to the monster level";
 
+                        CardCreator.FillAdvFiledsOfCard((ModifierCard)card, 
+                            GetMyData(additionalParamsGroupBox, 0, 1, 0),
+                            GetMyData(additionalParamsGroupBox, 0, 1, 1));
+
+                        cp.modifierLabel.Text = ((ModifierCard)card).Sign + " " + ((ModifierCard)card).Modifier + " to the Monster LEVEL";
                         cp.modifierLabel.Visible = true;
+
                         break;
                     case "Monster card":
-                        //add addit fields
-                        break;
-                    case "Race card":
-                        break;
-                    case "Go up a level card":
+                        CardCreator.FillAdvFiledsOfCard((MonsterCard)card, 
+                            GetMyData(additionalParamsGroupBox, 0, 1, 0),
+                            GetMyData(additionalParamsGroupBox, 0, 1, 1),
+                            GetMyData(additionalParamsGroupBox, 0, 1, 4),
+                            GetMyData(additionalParamsGroupBox, 0, 1, 2),
+                            GetMyData(additionalParamsGroupBox, 0, 1, 3));
+
+                        cp.modifierLabel.Text = "" + ((MonsterCard)card).Level.ToString();
+                        cp.modifierLabel.Visible = true;
+
                         break;
                     case "Item card":
-                        //add addit fields
+                        CardCreator.FillAdvFiledsOfCard((ItemCard)card,
+                            GetMyData(additionalParamsGroupBox, 0, 1, 0),
+                            GetMyData(additionalParamsGroupBox, 0, 1, 1),
+                            GetMyData(additionalParamsGroupBox, 0, 1, 2),
+                            GetMyData(additionalParamsGroupBox, 0, 1, 3),
+                            GetMyData(additionalParamsGroupBox, 0, 1, 4),
+                            GetMyData(additionalParamsGroupBox, 0, 1, 5));
                         break;
                     case "One shot trasure card":
-                        //add addit fields
-                        break;
-                    case "Other card":
+                        CardCreator.FillAdvFiledsOfCard((OneShotTreasureCard)card, GetMyData(additionalParamsGroupBox, 0, 1, 0));
                         break;
                 }
                 cp.ShowDialog();

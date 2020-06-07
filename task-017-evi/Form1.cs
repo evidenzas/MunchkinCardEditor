@@ -453,6 +453,7 @@ namespace task_017_evi
             saveCardButton.BackColor = cd.Color;
             loadDraftButton.BackColor = cd.Color;
             choosePictureButton.BackColor = cd.Color;
+            clearButton.BackColor = cd.Color;
         }
 
         public static string GetMyData(Control container, int controlIndex, int depth, params int[] containerIndicies)
@@ -573,7 +574,6 @@ namespace task_017_evi
             var openDraftFileDialog = new OpenFileDialog();
             Stream fileStream = null;
             openDraftFileDialog.Filter = "Json files (*.json, *.txt) | *.json; *.txt;";
-            //"Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png";
 
             openDraftFileDialog.FileOk += CheckJsonFileExt;
 
@@ -609,10 +609,62 @@ namespace task_017_evi
                             additionalParamsGroupBox.Controls.Clear();
                             additionalParamsGroupBox.Show();
                             */
+
+                            switch (card.CardType)
+                            {
+                                case "ClassCard":
+                                    doorTypeRadioButton.Checked = true;
+                                    cardSubTypeGroupBox.Show();
+                                    (cardSubTypeGroupBox.Controls[0] as RadioButton).Checked = true;
+                                    break;
+                                case "CurseCard":
+                                    doorTypeRadioButton.Checked = true;
+                                    cardSubTypeGroupBox.Show();
+                                    (cardSubTypeGroupBox.Controls[1] as RadioButton).Checked = true;
+                                    break;
+                                case "ModifierCard":
+                                    doorTypeRadioButton.Checked = true;
+                                    (cardSubTypeGroupBox.Controls[2] as RadioButton).Checked = true;
+                                    additionalParamsGroupBox.Controls[0].Controls[0].Text = ((ModifierCard)card).Sign;
+                                    additionalParamsGroupBox.Controls[1].Controls[0].Text = ((ModifierCard)card).Modifier.ToString();
+                                    cardSubTypeGroupBox.Show();
+                                    break;
+                                case "MonsterCard":
+                                    doorTypeRadioButton.Checked = true;
+                                    (cardSubTypeGroupBox.Controls[3] as RadioButton).Checked = true;
+                                    cardSubTypeGroupBox.Show();
+                                    break;
+                                case "RaceCard":
+                                    doorTypeRadioButton.Checked = true;
+                                    (cardSubTypeGroupBox.Controls[4] as RadioButton).Checked = true;
+                                    cardSubTypeGroupBox.Show();
+                                    break;
+                                case "GoUpALevelCard":
+                                    (cardSubTypeGroupBox.Controls[0] as RadioButton).Checked = true;
+                                    cardSubTypeGroupBox.Show();
+                                    break;
+                                case "ItemCard":
+                                    treasureTypeRadioButton.Checked = true;
+                                    (cardSubTypeGroupBox.Controls[1] as RadioButton).Checked = true;
+                                    cardSubTypeGroupBox.Show();
+                                    break;
+                                case "OneShotTreasureCard":
+                                    treasureTypeRadioButton.Checked = true;
+                                    (cardSubTypeGroupBox.Controls[2] as RadioButton).Checked = true;
+                                    (additionalParamsGroupBox.Controls[0].Controls[0] as TextBox).Text = ((OneShotTreasureCard)card).Cost;
+                                    cardSubTypeGroupBox.Show();
+                                    break;
+                                case "Other":
+                                    otherTypeRadioButton.Checked = true;
+                                    (cardSubTypeGroupBox.Controls[0] as RadioButton).Checked = true;
+                                    cardSubTypeGroupBox.Show();
+                                    break;
+
+                            }
                         }
                         catch (Exception)
                         {
-                            MessageBox.Show("Error: Could not open draft file");
+                            MessageBox.Show("Error: Could not set some fields from file");
                         }
                     }
                 }

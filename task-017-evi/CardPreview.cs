@@ -141,8 +141,16 @@ namespace task_017_evi
         public void SetUpPreview(Card card)
         {
             //typeof(card)
-
-            pictureBox1.Image = Image.FromFile(card.PicturePath);
+            if (!string.IsNullOrEmpty(card.PicturePath))
+            {
+                try
+                {
+                    pictureBox1.Image = Image.FromFile(card.PicturePath);
+                }
+                catch (Exception)
+                {
+                }
+            }
             nameLabel.Text = card.Name;
             cardDescLabel.Text = card.Description;
             switch (card)

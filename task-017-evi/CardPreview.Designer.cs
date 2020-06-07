@@ -260,6 +260,7 @@
             this.saveDraftButton.TabIndex = 9;
             this.saveDraftButton.Text = "Save card as draft";
             this.saveDraftButton.UseVisualStyleBackColor = true;
+            this.saveDraftButton.Click += new System.EventHandler(this.saveDraftButton_Click);
             // 
             // CardPreview
             // 

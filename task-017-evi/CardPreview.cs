@@ -206,6 +206,11 @@ namespace task_017_evi
             }
 
         }
+
+        private void saveDraftButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

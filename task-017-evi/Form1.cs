@@ -369,7 +369,6 @@ namespace task_017_evi
             isBigItemCheckBox.Location = new Point(9, 180);
             
             itemModifierTextBox.KeyPress += itemModifierTextBox_KeyPress;
-            //costTextBox.KeyPress += costTextBox_KeyPress;
 
             additionalParamsGroupBox.Show();
         }
@@ -393,8 +392,6 @@ namespace task_017_evi
             costOSTGroupBox.Controls.Add(costOSTTextBox);
 
             costOSTTextBox.Dock = DockStyle.Fill;
-
-            //costOSTTextBox.KeyPress += costOSTTextBox_KeyPress;
 
             additionalParamsGroupBox.Show();
         }
@@ -421,22 +418,6 @@ namespace task_017_evi
                 e.Handled = true;
             }
         }
-        /*
-        private void costTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-        private void costOSTTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-        */
 
         private void monsterLevelTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -501,7 +482,6 @@ namespace task_017_evi
                 default:
                     return null;
             }
-
         }
 
         private void saveCardButton_Click(object sender, EventArgs e)
@@ -556,10 +536,5 @@ namespace task_017_evi
             }
             else MessageBox.Show("Select card sub-type");
         }
-
-
-
-
-
     }
 }

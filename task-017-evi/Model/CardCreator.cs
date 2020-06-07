@@ -74,28 +74,12 @@ namespace task_017_evi.Model
                 if (cardIsBigItem.Equals("True")) card.IsBigItem = true;
                 else card.IsBigItem = false;
             }
-                    //bool.Parse(cardIsBigItem);
+            //bool.Parse(cardIsBigItem); - doesnt work
         }
 
         public static void FillAdvFiledsOfCard(OneShotTreasureCard card, string cardCost)
         {
             card.Cost = cardCost;
         }
-
-        
-        /*
-        switch (typeof(card))
-            {
-                case "Modifier card":
-                    break;
-                case "Monster card":
-                    break;
-                case "Item card":
-                    break;
-                case "One shot trasure card":
-                    break;
-            }
-         */
-
     }
 }

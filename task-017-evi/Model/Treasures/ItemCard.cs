@@ -10,7 +10,7 @@ namespace task_017_evi.Model.Treasures
     {
         public int Modifier { get; set; }
         public string Sign { get; set; }
-        public string RaceRestriction { get; set; }
+        public string Restriction { get; set; }
         public string PartOfBody { get; set; }
         public string Cost  { get; set; }
         public bool IsBigItem  { get; set; }

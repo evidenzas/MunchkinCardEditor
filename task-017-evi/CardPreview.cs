@@ -27,22 +27,32 @@ namespace task_017_evi
             //cardDescLabel.Parent = pictureBox1;
             nameLabel.Parent = tableLayoutPanel1;
             cardDescLabel.Parent = tableLayoutPanel1;
-            modifierLabel.Parent = tableLayoutPanel1;
+            monsterLvlOrRestrLabel.Parent = tableLayoutPanel1;
 
             nameLabel.BackColor = Color.Transparent;
             cardDescLabel.BackColor = Color.Transparent;
-            modifierLabel.BackColor = Color.Transparent;
+            monsterLvlOrRestrLabel.BackColor = Color.Transparent;
             leftBottomLabel.BackColor = Color.Transparent;
             rightBottomLabel.BackColor = Color.Transparent;
+            itemBonusLabel.BackColor = Color.Transparent;
+            monsterLvlOrRestrLabel.BackColor = Color.Transparent;
+            modifierToTheMonsterLvlLabel.BackColor = Color.Transparent;
+            oneShotTrOrLvlUpLabel.BackColor = Color.Transparent;
+            bigItemLabel.BackColor = Color.Transparent;
 
             nameLabel.TextAlign = ContentAlignment.MiddleCenter;
             cardDescLabel.TextAlign = ContentAlignment.MiddleCenter;
             //cardDescLabel.MaximumSize = new Size(100, 0);
             nameLabel.AutoSize = true;
             cardDescLabel.AutoSize = true;
-            modifierLabel.AutoSize = true;
-            leftBottomLabel.AutoSize = true;
-            rightBottomLabel.AutoSize = true;
+            monsterLvlOrRestrLabel.AutoSize = true;
+            leftBottomLabel.AutoSize = false;
+            rightBottomLabel.AutoSize = false;
+            itemBonusLabel.AutoSize = true;
+            monsterLvlOrRestrLabel.AutoSize = true;
+            modifierToTheMonsterLvlLabel.AutoSize = true;
+            oneShotTrOrLvlUpLabel.AutoSize = true;
+            bigItemLabel.AutoSize = true;
 
             viewedCard = card;
             Color fontCardColor = card.FontCardColor == null ? Color.Black : card.FontCardColor;
@@ -57,9 +67,14 @@ namespace task_017_evi
         {
             nameLabel.ForeColor = fontColor;
             cardDescLabel.ForeColor = fontColor;
-            modifierLabel.ForeColor = fontColor;
+            monsterLvlOrRestrLabel.ForeColor = fontColor;
             rightBottomLabel.ForeColor = fontColor;
             leftBottomLabel.ForeColor = fontColor;
+            itemBonusLabel.ForeColor = fontColor;
+            monsterLvlOrRestrLabel.ForeColor = fontColor;
+            modifierToTheMonsterLvlLabel.ForeColor = fontColor;
+            oneShotTrOrLvlUpLabel.ForeColor = fontColor;
+            bigItemLabel.ForeColor = fontColor;
         }
 
         public void backColorFormInit(Color backColor)
@@ -72,7 +87,7 @@ namespace task_017_evi
 
         public void winCapture()
         {
-            var cntrl = tableLayoutPanel1; //there shouldd be a control
+            var cntrl = tableLayoutPanel1; //there should be a control
             var saveFile = new SaveFileDialog();
             saveFile.Filter = "Images|*.png;*.bmp;*.jpg";
             ImageFormat format = ImageFormat.Png;
@@ -131,32 +146,45 @@ namespace task_017_evi
             switch (card)
             {
                 case ClassCard _:
+                    rightBottomLabel.Text = "Class";
+                    rightBottomLabel.Visible = true;
                     break;
                 case CurseCard _:
                     nameLabel.Text = "Curse! \n" + card.Name;
                     break;
                 case ModifierCard _:
-                    modifierLabel.Text = ((ModifierCard)card).Sign + " " + ((ModifierCard)card).Modifier + " to the monster level";
-                    if (((ModifierCard)card).Modifier != 0) modifierLabel.Visible = true;
+                    monsterLvlOrRestrLabel.Text = ((ModifierCard)card).Sign + " " + ((ModifierCard)card).Modifier + " to the monster level";
+                    if (((ModifierCard)card).Modifier != 0) monsterLvlOrRestrLabel.Visible = true;
                     break;
                 case MonsterCard _:
                     break;
                 case RaceCard _:
+                    rightBottomLabel.Text = "Race";
+                    rightBottomLabel.Visible = true;
                     break;
                 case GoUpALevelCard _:
+                    oneShotTrOrLvlUpLabel.Text = "Go up a level";
+                    oneShotTrOrLvlUpLabel.Visible = true;
                     break;
                 case ItemCard _:
-                    modifierLabel.Text = "Bonus " + ((ItemCard)card).Sign + " " + ((ItemCard)card).Modifier;
-                    if (((ItemCard)card).Modifier != 0) modifierLabel.Visible = true;
+                    itemBonusLabel.Text = "Bonus " + ((ItemCard)card).Sign + " " + ((ItemCard)card).Modifier;
+                    if (((ItemCard)card).Modifier != 0) itemBonusLabel.Visible = true;
                     rightBottomLabel.Text = ((ItemCard)card).Cost;
                     leftBottomLabel.Text = ((ItemCard)card).PartOfBody;
-                    if (((ItemCard)card).IsBigItem) leftBottomLabel.Text += " \n Big";
+                    if (((ItemCard)card).IsBigItem == true) bigItemLabel.Visible = true;
+                    if (!string.IsNullOrEmpty(((ItemCard)card).Restriction))
+                    {
+                        monsterLvlOrRestrLabel.Text = ((ItemCard)card).Restriction;
+                        monsterLvlOrRestrLabel.Visible = true;
+                    }
                     rightBottomLabel.Visible = true;
                     leftBottomLabel.Visible = true;
                     break;
                 case OneShotTreasureCard _:
                     rightBottomLabel.Text = ((OneShotTreasureCard)card).Cost;
                     rightBottomLabel.Visible = true;
+                    oneShotTrOrLvlUpLabel.Text = "One shot treasure";
+                    oneShotTrOrLvlUpLabel.Visible = true;
                     break;
                 case OtherCard _:
                     break;

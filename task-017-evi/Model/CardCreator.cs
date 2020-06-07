@@ -62,14 +62,19 @@ namespace task_017_evi.Model
             if (!string.IsNullOrEmpty(cardLevelReward)) card.LevelReward = int.Parse(cardLevelReward);
         }
 
-        public static void FillAdvFiledsOfCard(ItemCard card, string cardModifier, string modSign, string cardRaceRestriction, string cardPartOfBody, string сardCost, string cardIsBigItem)
+        public static void FillAdvFiledsOfCard(ItemCard card, string cardModifier, string modSign, string cardRestriction, string cardPartOfBody, string сardCost, string cardIsBigItem)
         {
             if (!string.IsNullOrEmpty(cardModifier)) card.Modifier = int.Parse(cardModifier);
             card.Sign = modSign;
-            card.RaceRestriction = cardRaceRestriction;
+            card.Restriction = cardRestriction;
             card.PartOfBody = cardPartOfBody;
             card.Cost = сardCost;
-            if (!string.IsNullOrEmpty(cardIsBigItem)) card.IsBigItem = bool.Parse(cardIsBigItem);
+            if (!string.IsNullOrEmpty(cardIsBigItem)) 
+            {
+                if (cardIsBigItem.Equals("True")) card.IsBigItem = true;
+                else card.IsBigItem = false;
+            }
+                    //bool.Parse(cardIsBigItem);
         }
 
         public static void FillAdvFiledsOfCard(OneShotTreasureCard card, string cardCost)

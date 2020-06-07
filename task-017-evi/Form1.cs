@@ -333,33 +333,33 @@ namespace task_017_evi
             itemModifierGroupBox.Controls.Add(itemModifierTextBox);
             itemModifierTextBox.Dock = DockStyle.Fill;
 
-            GroupBox raceRestrictionGroupBox = new GroupBox();
-            raceRestrictionGroupBox.Text = "Race restriction";
+            GroupBox restrictionGroupBox = new GroupBox();
+            restrictionGroupBox.Text = "Restriction";
             GroupBox partOfBodyGroupBox = new GroupBox();
             partOfBodyGroupBox.Text = "Part of body";
             GroupBox costGroupBox = new GroupBox();
             costGroupBox.Text = "Cost";
 
-            additionalParamsGroupBox.Controls.Add(raceRestrictionGroupBox);
+            additionalParamsGroupBox.Controls.Add(restrictionGroupBox);
             additionalParamsGroupBox.Controls.Add(partOfBodyGroupBox);
             additionalParamsGroupBox.Controls.Add(costGroupBox);
 
-            raceRestrictionGroupBox.Location = new Point(5, 60);
-            raceRestrictionGroupBox.Size = new Size(150, 40);
+            restrictionGroupBox.Location = new Point(5, 60);
+            restrictionGroupBox.Size = new Size(150, 40);
             partOfBodyGroupBox.Location = new Point(5, 100);
             partOfBodyGroupBox.Size = new Size(150, 40);
             costGroupBox.Location = new Point(5, 140);
             costGroupBox.Size = new Size(150, 40);
 
-            TextBox raceRestrictionTextBox = new TextBox();
+            TextBox restrictionTextBox = new TextBox();
             TextBox partOfBodyTextBox = new TextBox();
             TextBox costTextBox = new TextBox();
 
-            raceRestrictionGroupBox.Controls.Add(raceRestrictionTextBox);
+            restrictionGroupBox.Controls.Add(restrictionTextBox);
             partOfBodyGroupBox.Controls.Add(partOfBodyTextBox);
             costGroupBox.Controls.Add(costTextBox);
 
-            raceRestrictionTextBox.Dock = DockStyle.Fill;
+            restrictionTextBox.Dock = DockStyle.Fill;
             partOfBodyTextBox.Dock = DockStyle.Fill;
             costTextBox.Dock = DockStyle.Fill;
 
@@ -367,7 +367,7 @@ namespace task_017_evi
             isBigItemCheckBox.Text = "Big item";
             additionalParamsGroupBox.Controls.Add(isBigItemCheckBox);
             isBigItemCheckBox.Location = new Point(9, 180);
-
+            
             itemModifierTextBox.KeyPress += itemModifierTextBox_KeyPress;
             //costTextBox.KeyPress += costTextBox_KeyPress;
 
@@ -495,41 +495,14 @@ namespace task_017_evi
                     return myControl.Text;
                 case ComboBox _:
                     return myControl.Text;
-             //   case RadioButton _:
-             //       return (myControl as RadioButton).Checked;
+                case CheckBox _:
+                    return (myControl as CheckBox).Checked.ToString();
+                case RadioButton _:
+                    return (myControl as RadioButton).Checked.ToString();
                 default:
                     return null;
             }
 
-        }
-
-
-        public static string GetMyText(Control container, int controlIndex) 
-        {
-            if (container.Controls == null || container.Controls.Count - 1 < controlIndex) return null;
-
-            var myControl = container.Controls[controlIndex];
-            switch (myControl)
-            {
-                case GroupBox _:
-                    if (myControl.Controls == null) return null;
-                    var myGroupBox = container.Controls[0];
-                    switch (myGroupBox)
-                    {
-                        case TextBox _:
-                            return myGroupBox.Text;
-                        case ComboBox _:
-                            return myGroupBox.Text;
-                        default:
-                            return null;
-                    }
-                case TextBox _:
-                    return myControl.Text;
-                case ComboBox _:
-                    return myControl.Text;
-                default:
-                    return null;
-            }
         }
 
         private void saveCardButton_Click(object sender, EventArgs e)
@@ -549,19 +522,13 @@ namespace task_017_evi
                 }
                 //var card = CardCreator.CreateNewCard(checkedButton.Text);
                 CardCreator.FillMainFieldsOfCard(card, pictureBox1.Image, nameTextBox.Text, descriptionTextBox.Text);
-
+                var test = GetMyData(additionalParamsGroupBox, 5, 0, 0);
                 switch (checkedButton.Text)
                 {
                     case "Modifier card":
-                        //cp.modifierLabel.Text = additionalParamsGroupBox.Controls[1].Controls[0].Text + additionalParamsGroupBox.Controls[0].Controls[0].Text + " to the monster level";
-
                         CardCreator.FillAdvFiledsOfCard((ModifierCard)card, 
                             GetMyData(additionalParamsGroupBox, 0, 1, 0),
                             GetMyData(additionalParamsGroupBox, 0, 1, 1));
-
-                        //cp.modifierLabel.Text = ((ModifierCard)card).Sign + " " + ((ModifierCard)card).Modifier + " to the Monster LEVEL";
-                        //cp.modifierLabel.Visible = true;
-
                         break;
                     case "Monster card":
                         CardCreator.FillAdvFiledsOfCard((MonsterCard)card, 
@@ -571,9 +538,6 @@ namespace task_017_evi
                             GetMyData(additionalParamsGroupBox, 0, 1, 2),
                             GetMyData(additionalParamsGroupBox, 0, 1, 3));
 
-                        //cp.modifierLabel.Text = "" + ((MonsterCard)card).Level.ToString();
-                        //cp.modifierLabel.Visible = true;
-
                         break;
                     case "Item card":
                         CardCreator.FillAdvFiledsOfCard((ItemCard)card,
@@ -582,7 +546,7 @@ namespace task_017_evi
                             GetMyData(additionalParamsGroupBox, 0, 1, 2),
                             GetMyData(additionalParamsGroupBox, 0, 1, 3),
                             GetMyData(additionalParamsGroupBox, 0, 1, 4),
-                            GetMyData(additionalParamsGroupBox, 0, 0, 5));
+                            GetMyData(additionalParamsGroupBox, 5, 0, 0));
                         break;
                     case "One shot trasure card":
                         CardCreator.FillAdvFiledsOfCard((OneShotTreasureCard)card, GetMyData(additionalParamsGroupBox, 0, 1, 0));

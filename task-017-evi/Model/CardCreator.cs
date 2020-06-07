@@ -39,7 +39,7 @@ namespace task_017_evi.Model
             return null;
         }
 
-        public static void FillMainFieldsOfCard(Card card, Image cardPicture, string cardName, string cardDesc)
+        public static void FillMainFieldsOfCard(Card card, string cardPicture, string cardName, string cardDesc)
         {
             card.PicturePath = cardPicture;
             card.Name = cardName;

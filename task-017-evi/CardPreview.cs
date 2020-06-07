@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -140,7 +141,8 @@ namespace task_017_evi
         public void SetUpPreview(Card card)
         {
             //typeof(card)
-            pictureBox1.Image = card.PicturePath;
+
+            pictureBox1.Image = Image.FromFile(card.PicturePath);
             nameLabel.Text = card.Name;
             cardDescLabel.Text = card.Description;
             switch (card)
@@ -209,7 +211,20 @@ namespace task_017_evi
 
         private void saveDraftButton_Click(object sender, EventArgs e)
         {
+            var saveFile = new SaveFileDialog();
+            saveFile.Filter = "Json|*.json;";
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    File.WriteAllText(saveFile.FileName, JsonWorker.CardSerialize(viewedCard));
+                }
+                catch (Exception)
+                {
 
+                }
+                MessageBox.Show("Draft saved");
+            }
         }
     }
 

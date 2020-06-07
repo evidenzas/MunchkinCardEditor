@@ -61,7 +61,7 @@ namespace task_017_evi
                         {
                             pictureBox1.Image = Image.FromFile(fileName);
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
                             MessageBox.Show("Error: Could not open image file");
                         }
@@ -500,7 +500,7 @@ namespace task_017_evi
                     card.BackCardColor = backColor;
                 }
                 //var card = CardCreator.CreateNewCard(checkedButton.Text);
-                CardCreator.FillMainFieldsOfCard(card, pictureBox1.Image, nameTextBox.Text, descriptionTextBox.Text);
+                CardCreator.FillMainFieldsOfCard(card, picturePathLabel.Text, nameTextBox.Text, descriptionTextBox.Text);
                 var test = GetMyData(additionalParamsGroupBox, 5, 0, 0);
                 switch (checkedButton.Text)
                 {
@@ -555,6 +555,73 @@ namespace task_017_evi
             descriptionTextBox.Text = "";
 
             if (card != null) card = null;
+        }
+        void CheckJsonFileExt(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            OpenFileDialog openFileDialog = (sender as OpenFileDialog);
+            if (Path.GetExtension(openFileDialog.FileName).ToLower() != ".json" &&
+                Path.GetExtension(openFileDialog.FileName).ToLower() != ".txt")
+            {
+                e.Cancel = true;
+                MessageBox.Show("Please choose files with the text extension: .json or .txt");
+                return;
+            }
+        }
+
+        private void loadDraftButton_Click(object sender, EventArgs e)
+        {
+            var openDraftFileDialog = new OpenFileDialog();
+            Stream fileStream = null;
+            openDraftFileDialog.Filter = "Json files (*.json, *.txt) | *.json; *.txt;";
+            //"Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png";
+
+            openDraftFileDialog.FileOk += CheckJsonFileExt;
+
+            if (openDraftFileDialog.ShowDialog() == DialogResult.OK && (fileStream = openDraftFileDialog.OpenFile()) != null)
+            {
+                try
+                {
+                    string fileName = openDraftFileDialog.FileName;
+                    using (fileStream)
+                    {
+                        string filelines = File.ReadAllText(fileName);
+                        card = JsonWorker.CardDeserialize(filelines);
+                        try
+                        {
+                            createNewCardButton.Enabled = false;
+                            groupBox1.Show();
+                            groupBox2.Show();
+                            groupBox3.Show();
+                            groupBox4.Show();
+                            choosePictureButton.Show();
+
+                            //fill form fields from drafft file
+                            nameTextBox.Text = card.Name;
+                            descriptionTextBox.Text = card.Description;
+                            picturePathLabel.Text = card.PicturePath;
+                            pictureBox1.Image = Image.FromFile(card.PicturePath);
+                            //TODO add card type field
+                            //and then https://stackoverflow.com/questions/8513042/json-net-serialize-deserialize-derived-types
+                            /*
+                            cardSubTypeGroupBox.Show();
+                            cardSubTypeGroupBox.Controls.Clear();
+                            cardSubTypeGroupBox.Show();
+                            additionalParamsGroupBox.Controls.Clear();
+                            additionalParamsGroupBox.Show();
+                            */
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Error: Could not open draft file");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+                }
+
+            }
         }
     }
 }

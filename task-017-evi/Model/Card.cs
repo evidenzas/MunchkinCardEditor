@@ -11,7 +11,7 @@ namespace task_017_evi.Cards
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public Image PicturePath { get; set; }
+        public string PicturePath { get; set; }
         public Color FontCardColor { get; set; }
         public Color BackCardColor { get; set; }
     }

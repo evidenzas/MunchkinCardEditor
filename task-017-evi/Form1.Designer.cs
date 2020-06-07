@@ -30,8 +30,6 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.createNewCardButton = new System.Windows.Forms.Button();
-            this.saveCardButton = new System.Windows.Forms.Button();
-            this.loadDraftButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.picturePathLabel = new System.Windows.Forms.Label();
@@ -47,6 +45,8 @@
             this.cardSubTypeGroupBox = new System.Windows.Forms.GroupBox();
             this.additionalParamsGroupBox = new System.Windows.Forms.GroupBox();
             this.colorButton = new System.Windows.Forms.Button();
+            this.saveCardButton = new System.Windows.Forms.Button();
+            this.loadDraftButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -106,27 +106,6 @@
             this.createNewCardButton.Text = "Create new";
             this.createNewCardButton.UseVisualStyleBackColor = true;
             this.createNewCardButton.Click += new System.EventHandler(this.createNewCardButton_Click);
-            // 
-            // saveCardButton
-            // 
-            this.saveCardButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.saveCardButton.Location = new System.Drawing.Point(3, 46);
-            this.saveCardButton.Name = "saveCardButton";
-            this.saveCardButton.Size = new System.Drawing.Size(85, 37);
-            this.saveCardButton.TabIndex = 1;
-            this.saveCardButton.Text = "Preview and save";
-            this.saveCardButton.UseVisualStyleBackColor = true;
-            this.saveCardButton.Click += new System.EventHandler(this.saveCardButton_Click);
-            // 
-            // loadDraftButton
-            // 
-            this.loadDraftButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.loadDraftButton.Location = new System.Drawing.Point(3, 89);
-            this.loadDraftButton.Name = "loadDraftButton";
-            this.loadDraftButton.Size = new System.Drawing.Size(85, 37);
-            this.loadDraftButton.TabIndex = 3;
-            this.loadDraftButton.Text = "Load draft";
-            this.loadDraftButton.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
@@ -295,6 +274,28 @@
             this.colorButton.Text = "UI Color";
             this.colorButton.UseVisualStyleBackColor = true;
             this.colorButton.Click += new System.EventHandler(this.colorButton_Click);
+            // 
+            // saveCardButton
+            // 
+            this.saveCardButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.saveCardButton.Location = new System.Drawing.Point(3, 46);
+            this.saveCardButton.Name = "saveCardButton";
+            this.saveCardButton.Size = new System.Drawing.Size(85, 37);
+            this.saveCardButton.TabIndex = 1;
+            this.saveCardButton.Text = "Preview and save";
+            this.saveCardButton.UseVisualStyleBackColor = true;
+            this.saveCardButton.Click += new System.EventHandler(this.saveCardButton_Click);
+            // 
+            // loadDraftButton
+            // 
+            this.loadDraftButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.loadDraftButton.Location = new System.Drawing.Point(3, 89);
+            this.loadDraftButton.Name = "loadDraftButton";
+            this.loadDraftButton.Size = new System.Drawing.Size(85, 37);
+            this.loadDraftButton.TabIndex = 3;
+            this.loadDraftButton.Text = "Load draft";
+            this.loadDraftButton.UseVisualStyleBackColor = true;
+            this.loadDraftButton.Click += new System.EventHandler(this.loadDraftButton_Click);
             // 
             // clearButton
             // 

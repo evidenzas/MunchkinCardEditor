@@ -56,7 +56,7 @@
             this.nameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.nameLabel.AutoSize = true;
             this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nameLabel.Location = new System.Drawing.Point(3, 56);
+            this.nameLabel.Location = new System.Drawing.Point(3, 47);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(328, 25);
             this.nameLabel.TabIndex = 3;
@@ -91,15 +91,15 @@
             this.tableLayoutPanel1.RowCount = 11;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(334, 466);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
@@ -107,7 +107,7 @@
             // 
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 118);
+            this.panel1.Location = new System.Drawing.Point(3, 99);
             this.panel1.Name = "panel1";
             this.tableLayoutPanel1.SetRowSpan(this.panel1, 3);
             this.panel1.Size = new System.Drawing.Size(328, 201);
@@ -125,10 +125,10 @@
             // 
             this.cardDescLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cardDescLabel.AutoSize = true;
-            this.cardDescLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cardDescLabel.Location = new System.Drawing.Point(100, 322);
+            this.cardDescLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cardDescLabel.Location = new System.Drawing.Point(106, 303);
             this.cardDescLabel.Name = "cardDescLabel";
-            this.cardDescLabel.Size = new System.Drawing.Size(134, 18);
+            this.cardDescLabel.Size = new System.Drawing.Size(122, 16);
             this.cardDescLabel.TabIndex = 7;
             this.cardDescLabel.Text = "no card description";
             this.cardDescLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -150,9 +150,9 @@
             // 
             this.panel2.Controls.Add(this.rightBottomLabel);
             this.panel2.Controls.Add(this.leftBottomLabel);
-            this.panel2.Location = new System.Drawing.Point(3, 440);
+            this.panel2.Location = new System.Drawing.Point(3, 444);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(328, 23);
+            this.panel2.Size = new System.Drawing.Size(328, 19);
             this.panel2.TabIndex = 9;
             // 
             // rightBottomLabel
@@ -219,7 +219,7 @@
             // 
             this.bigItemLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.bigItemLabel.AutoSize = true;
-            this.bigItemLabel.Location = new System.Drawing.Point(3, 419);
+            this.bigItemLabel.Location = new System.Drawing.Point(3, 425);
             this.bigItemLabel.Name = "bigItemLabel";
             this.bigItemLabel.Size = new System.Drawing.Size(22, 13);
             this.bigItemLabel.TabIndex = 11;
@@ -230,10 +230,10 @@
             // 
             this.oneShotTrOrLvlUpLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.oneShotTrOrLvlUpLabel.AutoSize = true;
-            this.oneShotTrOrLvlUpLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.oneShotTrOrLvlUpLabel.Location = new System.Drawing.Point(3, 392);
+            this.oneShotTrOrLvlUpLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.oneShotTrOrLvlUpLabel.Location = new System.Drawing.Point(3, 402);
             this.oneShotTrOrLvlUpLabel.Name = "oneShotTrOrLvlUpLabel";
-            this.oneShotTrOrLvlUpLabel.Size = new System.Drawing.Size(328, 20);
+            this.oneShotTrOrLvlUpLabel.Size = new System.Drawing.Size(328, 18);
             this.oneShotTrOrLvlUpLabel.TabIndex = 12;
             this.oneShotTrOrLvlUpLabel.Text = "GoUpALvl/OneShotTreausre";
             this.oneShotTrOrLvlUpLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -244,7 +244,7 @@
             this.modifierToTheMonsterLvlLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.modifierToTheMonsterLvlLabel.AutoSize = true;
             this.modifierToTheMonsterLvlLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.modifierToTheMonsterLvlLabel.Location = new System.Drawing.Point(3, 93);
+            this.modifierToTheMonsterLvlLabel.Location = new System.Drawing.Point(3, 74);
             this.modifierToTheMonsterLvlLabel.Name = "modifierToTheMonsterLvlLabel";
             this.modifierToTheMonsterLvlLabel.Size = new System.Drawing.Size(328, 20);
             this.modifierToTheMonsterLvlLabel.TabIndex = 13;

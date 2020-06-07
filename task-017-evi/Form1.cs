@@ -536,5 +536,25 @@ namespace task_017_evi
             }
             else MessageBox.Show("Select card sub-type");
         }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            foreach (var item in groupBox4.Controls)
+            {
+                (item as RadioButton).Checked = false;
+            }
+
+            cardSubTypeGroupBox.Controls.Clear();
+            cardSubTypeGroupBox.Hide();
+            additionalParamsGroupBox.Controls.Clear();
+            additionalParamsGroupBox.Hide();
+
+            picturePathLabel.Text = "";
+            pictureBox1.Image = null;
+            nameTextBox.Text = "";
+            descriptionTextBox.Text = "";
+
+            if (card != null) card = null;
+        }
     }
 }

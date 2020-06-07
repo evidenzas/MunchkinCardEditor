@@ -47,6 +47,7 @@
             this.cardSubTypeGroupBox = new System.Windows.Forms.GroupBox();
             this.additionalParamsGroupBox = new System.Windows.Forms.GroupBox();
             this.colorButton = new System.Windows.Forms.Button();
+            this.clearButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -76,6 +77,7 @@
             this.tableLayoutPanel1.Controls.Add(this.colorButton, 0, 10);
             this.tableLayoutPanel1.Controls.Add(this.saveCardButton, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.loadDraftButton, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.clearButton, 0, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -294,6 +296,17 @@
             this.colorButton.UseVisualStyleBackColor = true;
             this.colorButton.Click += new System.EventHandler(this.colorButton_Click);
             // 
+            // clearButton
+            // 
+            this.clearButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.clearButton.Location = new System.Drawing.Point(3, 132);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(85, 37);
+            this.clearButton.TabIndex = 14;
+            this.clearButton.Text = "Clear";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,6 +352,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.TextBox descriptionTextBox;
+        private System.Windows.Forms.Button clearButton;
     }
 }
 

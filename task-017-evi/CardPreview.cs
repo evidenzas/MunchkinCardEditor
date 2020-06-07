@@ -157,6 +157,19 @@ namespace task_017_evi
                     if (((ModifierCard)card).Modifier != 0) monsterLvlOrRestrLabel.Visible = true;
                     break;
                 case MonsterCard _:
+                    if (((MonsterCard)card).Level != 0)
+                    {
+                        monsterLvlOrRestrLabel.Text = "Level " + ((MonsterCard)card).Level.ToString();
+                        monsterLvlOrRestrLabel.Visible = true;
+                    }
+                    if (!string.IsNullOrEmpty(((MonsterCard)card).BadStuff))
+                    {
+                        cardDescLabel.Text += "\nBad stuff: " + ((MonsterCard)card).BadStuff;
+                    }
+                    leftBottomLabel.Text = ((MonsterCard)card).LevelReward.ToString() + (((MonsterCard)card).LevelReward > 1 ? " levels" : " level");
+                    rightBottomLabel.Text = ((MonsterCard)card).TreasureReward.ToString() + (((MonsterCard)card).TreasureReward > 1 ? " levels" : " level");
+                    if (((MonsterCard)card).LevelReward > 0) leftBottomLabel.Visible = true;
+                    if (((MonsterCard)card).TreasureReward > 0) rightBottomLabel.Visible = true;
                     break;
                 case RaceCard _:
                     rightBottomLabel.Text = "Race";

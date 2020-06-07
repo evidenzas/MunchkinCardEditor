@@ -469,7 +469,6 @@ namespace task_017_evi
             this.BackColor = cd.Color;
             colorButton.BackColor = cd.Color;
             createNewCardButton.BackColor = cd.Color;
-            saveDraftButton.BackColor = cd.Color;
             saveCardButton.BackColor = cd.Color;
             loadDraftButton.BackColor = cd.Color;
             choosePictureButton.BackColor = cd.Color;

@@ -44,6 +44,7 @@
             this.bigItemLabel = new System.Windows.Forms.Label();
             this.oneShotTrOrLvlUpLabel = new System.Windows.Forms.Label();
             this.modifierToTheMonsterLvlLabel = new System.Windows.Forms.Label();
+            this.saveDraftButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -64,9 +65,9 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(232, 472);
+            this.saveButton.Location = new System.Drawing.Point(258, 472);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(96, 40);
+            this.saveButton.Size = new System.Drawing.Size(70, 40);
             this.saveButton.TabIndex = 4;
             this.saveButton.Text = "Save card as image";
             this.saveButton.UseVisualStyleBackColor = true;
@@ -183,9 +184,9 @@
             // 
             // backColorButton
             // 
-            this.backColorButton.Location = new System.Drawing.Point(119, 472);
+            this.backColorButton.Location = new System.Drawing.Point(91, 472);
             this.backColorButton.Name = "backColorButton";
-            this.backColorButton.Size = new System.Drawing.Size(95, 40);
+            this.backColorButton.Size = new System.Drawing.Size(70, 40);
             this.backColorButton.TabIndex = 7;
             this.backColorButton.Text = "Change background color";
             this.backColorButton.UseVisualStyleBackColor = true;
@@ -195,7 +196,7 @@
             // 
             this.fontColorButton.Location = new System.Drawing.Point(6, 472);
             this.fontColorButton.Name = "fontColorButton";
-            this.fontColorButton.Size = new System.Drawing.Size(95, 40);
+            this.fontColorButton.Size = new System.Drawing.Size(70, 40);
             this.fontColorButton.TabIndex = 8;
             this.fontColorButton.Text = "Change font color";
             this.fontColorButton.UseVisualStyleBackColor = true;
@@ -251,11 +252,21 @@
             this.modifierToTheMonsterLvlLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.modifierToTheMonsterLvlLabel.Visible = false;
             // 
+            // saveDraftButton
+            // 
+            this.saveDraftButton.Location = new System.Drawing.Point(174, 472);
+            this.saveDraftButton.Name = "saveDraftButton";
+            this.saveDraftButton.Size = new System.Drawing.Size(70, 40);
+            this.saveDraftButton.TabIndex = 9;
+            this.saveDraftButton.Text = "Save card as draft";
+            this.saveDraftButton.UseVisualStyleBackColor = true;
+            // 
             // CardPreview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(334, 521);
+            this.Controls.Add(this.saveDraftButton);
             this.Controls.Add(this.fontColorButton);
             this.Controls.Add(this.backColorButton);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -294,5 +305,6 @@
         private System.Windows.Forms.Label bigItemLabel;
         private System.Windows.Forms.Label oneShotTrOrLvlUpLabel;
         private System.Windows.Forms.Label modifierToTheMonsterLvlLabel;
+        private System.Windows.Forms.Button saveDraftButton;
     }
 }

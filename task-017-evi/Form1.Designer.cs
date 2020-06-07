@@ -30,7 +30,6 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.createNewCardButton = new System.Windows.Forms.Button();
-            this.saveDraftButton = new System.Windows.Forms.Button();
             this.saveCardButton = new System.Windows.Forms.Button();
             this.loadDraftButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -66,9 +65,6 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel1.Controls.Add(this.createNewCardButton, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.saveDraftButton, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.saveCardButton, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.loadDraftButton, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBox2, 1, 1);
@@ -78,6 +74,8 @@
             this.tableLayoutPanel1.Controls.Add(this.cardSubTypeGroupBox, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.additionalParamsGroupBox, 4, 1);
             this.tableLayoutPanel1.Controls.Add(this.colorButton, 0, 10);
+            this.tableLayoutPanel1.Controls.Add(this.saveCardButton, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.loadDraftButton, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -107,20 +105,10 @@
             this.createNewCardButton.UseVisualStyleBackColor = true;
             this.createNewCardButton.Click += new System.EventHandler(this.createNewCardButton_Click);
             // 
-            // saveDraftButton
-            // 
-            this.saveDraftButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.saveDraftButton.Location = new System.Drawing.Point(3, 46);
-            this.saveDraftButton.Name = "saveDraftButton";
-            this.saveDraftButton.Size = new System.Drawing.Size(85, 37);
-            this.saveDraftButton.TabIndex = 2;
-            this.saveDraftButton.Text = "Save as draft";
-            this.saveDraftButton.UseVisualStyleBackColor = true;
-            // 
             // saveCardButton
             // 
             this.saveCardButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.saveCardButton.Location = new System.Drawing.Point(3, 89);
+            this.saveCardButton.Location = new System.Drawing.Point(3, 46);
             this.saveCardButton.Name = "saveCardButton";
             this.saveCardButton.Size = new System.Drawing.Size(85, 37);
             this.saveCardButton.TabIndex = 1;
@@ -131,7 +119,7 @@
             // loadDraftButton
             // 
             this.loadDraftButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.loadDraftButton.Location = new System.Drawing.Point(3, 132);
+            this.loadDraftButton.Location = new System.Drawing.Point(3, 89);
             this.loadDraftButton.Name = "loadDraftButton";
             this.loadDraftButton.Size = new System.Drawing.Size(85, 37);
             this.loadDraftButton.TabIndex = 3;
@@ -334,7 +322,6 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button createNewCardButton;
-        private System.Windows.Forms.Button saveDraftButton;
         private System.Windows.Forms.Button saveCardButton;
         private System.Windows.Forms.Button loadDraftButton;
         private System.Windows.Forms.GroupBox groupBox1;

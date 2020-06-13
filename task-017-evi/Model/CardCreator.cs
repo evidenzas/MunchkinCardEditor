@@ -4,12 +4,12 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using task_017_evi.Cards;
-using task_017_evi.Model.Doors;
-using task_017_evi.Model.Others;
-using task_017_evi.Model.Treasures;
+using munchkin_card_editor.Cards;
+using munchkin_card_editor.Model.Doors;
+using munchkin_card_editor.Model.Others;
+using munchkin_card_editor.Model.Treasures;
 
-namespace task_017_evi.Model
+namespace munchkin_card_editor.Model
 {
     class CardCreator
     {

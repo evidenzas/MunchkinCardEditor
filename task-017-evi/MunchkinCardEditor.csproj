@@ -78,12 +78,6 @@
     <Compile Include="Model\Treasures\OneShotTreasureCard.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TranspTextBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="TranspTextBox.Designer.cs">
-      <DependentUpon>TranspTextBox.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="CardPreview.resx">
       <DependentUpon>CardPreview.cs</DependentUpon>
     </EmbeddedResource>

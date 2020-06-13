@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace task_017_evi.Model.Others
+namespace munchkin_card_editor.Model.Others
 {
     class OtherCard : Other
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace task_017_evi
+namespace munchkin_card_editor
 {
     static class Program
     {

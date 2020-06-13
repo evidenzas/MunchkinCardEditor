@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace task_017_evi.Model.Treasures
+namespace munchkin_card_editor.Model.Treasures
 {
     class GoUpALevelCard : Treasure
     {

@@ -1,4 +1,4 @@
-﻿namespace task_017_evi
+﻿namespace munchkin_card_editor
 {
     partial class CardPreview
     {

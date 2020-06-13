@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace task_017_evi.Cards
+namespace munchkin_card_editor.Cards
 {
     public class Card
     {

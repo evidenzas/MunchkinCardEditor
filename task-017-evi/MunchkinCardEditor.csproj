@@ -58,7 +58,6 @@
     <Compile Include="CardPreview.Designer.cs">
       <DependentUpon>CardPreview.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interface1.cs" />
     <Compile Include="JsonWorker.cs" />
     <Compile Include="Model\Card.cs" />
     <Compile Include="Model\CardCreator.cs" />

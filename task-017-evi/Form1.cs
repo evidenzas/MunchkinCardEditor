@@ -600,15 +600,6 @@ namespace task_017_evi
                             descriptionTextBox.Text = card.Description;
                             picturePathLabel.Text = card.PicturePath;
                             pictureBox1.Image = Image.FromFile(card.PicturePath);
-                            //TODO add card type field
-                            //and then https://stackoverflow.com/questions/8513042/json-net-serialize-deserialize-derived-types
-                            /*
-                            cardSubTypeGroupBox.Show();
-                            cardSubTypeGroupBox.Controls.Clear();
-                            cardSubTypeGroupBox.Show();
-                            additionalParamsGroupBox.Controls.Clear();
-                            additionalParamsGroupBox.Show();
-                            */
 
                             switch (card.CardType)
                             {

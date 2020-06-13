@@ -625,13 +625,18 @@ namespace task_017_evi
                                 case "ModifierCard":
                                     doorTypeRadioButton.Checked = true;
                                     (cardSubTypeGroupBox.Controls[2] as RadioButton).Checked = true;
-                                    additionalParamsGroupBox.Controls[0].Controls[0].Text = ((ModifierCard)card).Sign;
-                                    additionalParamsGroupBox.Controls[1].Controls[0].Text = ((ModifierCard)card).Modifier.ToString();
+                                    additionalParamsGroupBox.Controls[1].Controls[0].Text = ((ModifierCard)card).Sign;
+                                    additionalParamsGroupBox.Controls[0].Controls[0].Text = ((ModifierCard)card).Modifier.ToString();
                                     cardSubTypeGroupBox.Show();
                                     break;
                                 case "MonsterCard":
                                     doorTypeRadioButton.Checked = true;
                                     (cardSubTypeGroupBox.Controls[3] as RadioButton).Checked = true;
+                                    additionalParamsGroupBox.Controls[0].Controls[0].Text = ((MonsterCard)card).Level.ToString();
+                                    additionalParamsGroupBox.Controls[1].Controls[0].Text = ((MonsterCard)card).Race.ToString();
+                                    additionalParamsGroupBox.Controls[2].Controls[0].Text = ((MonsterCard)card).TreasureReward.ToString();
+                                    additionalParamsGroupBox.Controls[3].Controls[0].Text = ((MonsterCard)card).LevelReward.ToString();
+                                    additionalParamsGroupBox.Controls[4].Controls[0].Text = ((MonsterCard)card).BadStuff.ToString();
                                     cardSubTypeGroupBox.Show();
                                     break;
                                 case "RaceCard":
@@ -646,13 +651,20 @@ namespace task_017_evi
                                 case "ItemCard":
                                     treasureTypeRadioButton.Checked = true;
                                     (cardSubTypeGroupBox.Controls[1] as RadioButton).Checked = true;
+                                    additionalParamsGroupBox.Controls[0].Controls[0].Text = ((ItemCard)card).Modifier.ToString();
+                                    additionalParamsGroupBox.Controls[1].Controls[0].Text = ((ItemCard)card).Sign.ToString();
+                                    additionalParamsGroupBox.Controls[2].Controls[0].Text = ((ItemCard)card).Restriction.ToString();
+                                    additionalParamsGroupBox.Controls[3].Controls[0].Text = ((ItemCard)card).PartOfBody.ToString();
+                                    additionalParamsGroupBox.Controls[4].Controls[0].Text = ((ItemCard)card).Cost.ToString();
+                                    (additionalParamsGroupBox.Controls[5] as CheckBox).Checked = ((ItemCard)card).IsBigItem;
                                     cardSubTypeGroupBox.Show();
                                     break;
                                 case "OneShotTreasureCard":
                                     treasureTypeRadioButton.Checked = true;
                                     (cardSubTypeGroupBox.Controls[2] as RadioButton).Checked = true;
-                                    (additionalParamsGroupBox.Controls[0].Controls[0] as TextBox).Text = ((OneShotTreasureCard)card).Cost;
+                                    (additionalParamsGroupBox.Controls[0].Controls[0] as TextBox).Text = ((OneShotTreasureCard)card).Cost.ToString();
                                     cardSubTypeGroupBox.Show();
+                                    additionalParamsGroupBox.Show();
                                     break;
                                 case "Other":
                                     otherTypeRadioButton.Checked = true;
